@@ -1,0 +1,175 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004080;
+  color: white;
+  padding: 15px 10px;
+  position: relative;
+  font-family: monospace;
+  flex-wrap: wrap;
+
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .logo {
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    flex: 1;
+    z-index: 1001;
+    color: white;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    user-select: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+
+    &:hover {
+      filter: drop-shadow(0 0 5px white);
+      letter-spacing: 8px;
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+
+  .menu-left {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #00bfff;
+      }
+    }
+  }
+
+  .social-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1001;
+    flex-wrap: wrap;
+
+    a {
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #00bfff;
+      }
+    }
+
+    .email {
+      font-size: 14px;
+      font-family: monospace;
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        color: #00bfff;
+      }
+    }
+  }
+
+  // Media query for mobile
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      left: 20px;
+      top: 18px;
+      z-index: 1002;
+    }
+
+    .logo {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      font-size: 26px;
+      animation: pulse 3s infinite ease-in-out;
+
+      &:hover {
+        animation-play-state: paused;
+        filter: drop-shadow(0 0 7px white);
+        transform: scale(1.1);
+      }
+    }
+
+    .menu-left {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 30%;
+      background-color: #003060;
+      position: absolute;
+      top: 110px;
+      left: 0;
+      z-index: 1000;
+      padding: 10px 15px;
+      display: none;
+      transition: all 0.3s ease;
+
+      &.open {
+        display: flex;
+      }
+
+      a {
+        padding: 10px 0;
+        width: 100%;
+        font-size: 14px;
+        text-align: left;
+        border-bottom: 1px solid #002040;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: #0050a0;
+          color: #00bfff;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .social-right {
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 8px;
+
+      .email {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+// Logo pulse animation
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px white);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px white);
+    transform: scale(1.05);
+  }
+}
