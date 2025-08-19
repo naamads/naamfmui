@@ -3,22 +3,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Blue sky gradient background */
-  background: linear-gradient(to bottom, #87ceeb, #b0e0e6);
+  background: linear-gradient(to bottom, #87ceeb, #b0e0e6); // light sky blue background
 
   .image-slider {
-    width: 100%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 1400px; // increased width
+    position: relative;
 
     img {
       width: 100%;
-      height: auto;
+      height: 400px; // decreased height
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       object-fit: cover;
       user-select: none;
       pointer-events: none;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
     }
 
     .swiper-button-next,
@@ -44,21 +48,23 @@
   }
 }
 
-/* Responsive */
+// 📱 Tablet View (768px and below)
 @media (max-width: 768px) {
   .body-content {
-    padding: 20px 10px;
+    padding: 25px 10px;
 
     .image-slider {
-      max-width: 90%;
+      max-width: 95%;
 
       img {
+        height: 300px; // smaller height for tablet
         border-radius: 8px;
       }
     }
   }
 }
 
+// 📱 Mobile View (480px and below)
 @media (max-width: 480px) {
   .body-content {
     padding: 15px 5px;
@@ -67,8 +73,15 @@
       max-width: 100%;
 
       img {
+        height: 200px; // even smaller for mobile
         border-radius: 6px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
       }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none; // Hide arrows on small screens
     }
   }
 }

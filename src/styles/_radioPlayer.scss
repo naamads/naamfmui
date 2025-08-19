@@ -1,0 +1,100 @@
+.radio-player {
+  background: #d32f2f;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 16px;
+  margin: 20px auto;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  font-family: 'Segoe UI', sans-serif;
+
+  .station-info {
+    display: flex;
+    flex-direction: column;
+
+    .station-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .live-tag {
+      background: #ffc107;
+      color: #000;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      border-radius: 12px;
+      width: fit-content;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #f5f5f5;
+    }
+  }
+
+  .stop-btn {
+    background: white;
+    color: #d32f2f;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: #f0f0f0;
+      outline: none;
+    }
+  }
+
+  audio {
+    display: none; // Hide native audio controls
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .radio-player {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+
+    .station-info {
+      margin-bottom: 10px;
+    }
+
+    .stop-btn {
+      align-self: flex-end;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .radio-player {
+    padding: 12px 16px;
+
+    .station-info {
+      .station-title {
+        font-size: 1.2rem;
+      }
+      .tagline {
+        font-size: 0.8rem;
+      }
+    }
+
+    .stop-btn {
+      width: 44px;
+      height: 44px;
+      font-size: 1.3rem;
+    }
+  }
+}

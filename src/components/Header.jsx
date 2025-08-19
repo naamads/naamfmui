@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/_header.scss';
 
 const Header = () => {
@@ -22,10 +23,10 @@ const Header = () => {
 
       {/* Left Menu */}
       <nav className={`menu-left ${menuOpen ? 'open' : ''}`}>
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">NaaM Groups</a>
-        <a href="#">Contact Us</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/naam-group">NaaM Groups</Link>
+        <Link to="/contact">Contact Us</Link>
       </nav>
 
       {/* Center Logo */}

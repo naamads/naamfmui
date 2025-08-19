@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -7,12 +7,38 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/_body.scss';
 
-// Import images properly when using React + Webpack / Vite
-import img1 from '../../public/images1.jpg';
-import img2 from '../../public/images2.jpg';
-import img3 from '../../public/images3.jpg';
+// 🔹 Simulated JSON data (can be replaced with an API call)
+const bannerData = [
+  {
+    title: "NaaM IT Care",
+    image: "/banners/itcare.jpg",
+    alt: "NaaM IT Care Banner"
+  },
+  {
+    title: "NaaM FM",
+    image: "/banners/fm.jpg",
+    alt: "NaaM FM Banner"
+  },
+  {
+    title: "NaaM Classified",
+    image: "/banners/classified.jpg",
+    alt: "NaaM Classified Banner"
+  },
+  {
+    title: "NaaM Break Time",
+    image: "/banners/breaktime.jpg",
+    alt: "NaaM Break Time Banner"
+  }
+];
 
 const Body = () => {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    // Simulate API call
+    setBanners(bannerData);
+  }, []);
+
   return (
     <main className="body-content">
       <Swiper
@@ -25,15 +51,11 @@ const Body = () => {
         pagination={{ clickable: true }}
         navigation={true}
       >
-        <SwiperSlide>
-          <img src={img1} alt="Slide 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={img2} alt="Slide 2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={img3} alt="Slide 3" />
-        </SwiperSlide>
+        {banners.map((banner, index) => (
+          <SwiperSlide key={index}>
+            <img src={banner.image} alt={banner.alt} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </main>
   );
