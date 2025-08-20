@@ -1,20 +1,18 @@
-// File: styles/_NaamGroup.scss
-
 .naam-group {
-  padding: 2rem 1rem;
-  background-color: #0f87e9; // Dark background like screenshot
-  color: #fff;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: #000;
+  color: #fff;
 
   .section-title {
-    text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
+    text-align: center;
     margin-bottom: 3rem;
+    color: #e63946;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #e63946; // Red accent
   }
 
   .group-card {
@@ -25,48 +23,89 @@
     border-radius: 8px;
     margin-bottom: 3rem;
     padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.6);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    cursor: default;
 
-    &:hover {
-      background-color: #2c2c2c;
+    /* Animation init */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s ease, transform 2s ease;
+
+    .group-image,
+    .group-info {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    // For even cards, reverse image and text order (like screenshot)
-    &:nth-child(even) {
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+
+      .group-image,
+      .group-info {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+      }
+    }
+
+    &.reverse {
       flex-direction: row-reverse;
+
+      .group-image {
+        transform: translateX(50px);
+      }
+
+      .group-info {
+        transform: translateX(-50px);
+      }
+
+      &.visible {
+        .group-image,
+        .group-info {
+          transform: translateX(0);
+        }
+      }
     }
 
     .group-image {
       flex: 0 0 320px;
       max-width: 320px;
-      height: 180px;
-      border-radius: 6px;
+      width: 100%;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgb(230 57 70 / 0.5);
+      box-shadow: 0 2px 10px rgba(230, 57, 70, 0.5);
+      position: relative;
+      transform: translateX(-50px);
 
       img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
         display: block;
+        border-radius: 8px;
       }
 
       .image-placeholder {
         width: 100%;
-        height: 100%;
+        height: 180px;
         background-color: #444;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         font-style: italic;
         color: #bbb;
+        border-radius: 8px;
       }
     }
 
     .group-info {
       flex: 1;
       padding: 0 2rem;
+      color: #ddd;
+      transform: translateX(50px);
 
       h3 {
         font-size: 1.75rem;
@@ -97,14 +136,12 @@
       .group-description {
         font-size: 1rem;
         line-height: 1.5;
-        color: #ddd;
       }
     }
   }
 }
 
-// Responsive
-
+/* Tablets and below */
 @media (max-width: 900px) {
   .naam-group {
     padding: 1.5rem 1rem;
@@ -112,30 +149,49 @@
     .group-card {
       flex-direction: column !important;
       text-align: center;
-      padding: 1.5rem 1rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      gap: 2rem;
+      min-height: 500px; /* Prevents height collapse */
 
       .group-image {
-        width: 100%;
+        width: 90%;
         max-width: 100%;
-        height: 200px;
-        margin-bottom: 1rem;
+        transform: translateX(0) !important;
+        margin: 0 auto;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
       }
 
       .group-info {
-        padding: 0;
+        padding: 0 1rem;
+        transform: translateX(0) !important;
 
         h3 {
           font-size: 1.5rem;
+          margin-bottom: 0.75rem;
         }
 
         .group-tagline {
           font-size: 0.85rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .group-description {
+          font-size: 1rem;
+          line-height: 1.5;
         }
       }
     }
   }
 }
 
+/* Mobile devices */
 @media (max-width: 480px) {
   .naam-group {
     .section-title {
@@ -143,13 +199,42 @@
     }
 
     .group-card {
+      padding: 4rem 1.25rem;  /* Slightly more padding for breathing room */
+      gap: 2rem;              /* Increased gap between image and text */
+      border-radius: 12px;    /* Optional: softer corners on mobile */
+      min-height: auto;       /* Let content drive height naturally */
+      text-align: center;
+
+      .group-image {
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        img {
+          border-radius: 12px; /* Softer image corners on mobile */
+        }
+      }
+
       .group-info {
+        padding: 0 0.5rem;
+
         h3 {
-          font-size: 1.25rem;
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+        }
+
+        .group-tagline {
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+        }
+
+        .divider {
+          margin: 0.5rem auto 1.5rem auto;
         }
 
         .group-description {
-          font-size: 0.9rem;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: #ccc;
         }
       }
     }

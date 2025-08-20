@@ -1,0 +1,100 @@
+.banner-carousel-container {
+  .banner-swiper {
+    width: 100%;
+
+    .banner-slide-wrapper {
+      position: relative;
+      width: 100%;
+      height: 24rem; // Default height (e.g., 384px)
+
+      @media (min-width: 768px) {
+        height: 500px;
+      }
+
+      @media (min-width: 1024px) {
+        height: 600px;
+      }
+
+      .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s ease;
+      }
+
+      .banner-image:hover {
+        transform: scale(1.05);
+      }
+
+      .overlay-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      }
+
+      .overlay-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem;
+
+        @media (min-width: 768px) {
+          padding: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+          padding: 3rem;
+        }
+
+        .content-wrapper {
+          max-width: 60rem;
+          color: white;
+
+          .banner-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+
+            @media (min-width: 768px) {
+              font-size: 2.25rem;
+            }
+
+            @media (min-width: 1024px) {
+              font-size: 3rem;
+            }
+
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+          }
+
+          .banner-description {
+            font-size: 0.875rem;
+
+            @media (min-width: 768px) {
+              font-size: 1.125rem;
+            }
+
+            @media (min-width: 1024px) {
+              font-size: 1.25rem;
+            }
+
+            color: #e5e5e5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+          }
+        }
+      }
+
+      .slide-indicator {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

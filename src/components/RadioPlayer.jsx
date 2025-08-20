@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/_radioPlayer.scss';
 
@@ -13,7 +14,6 @@ const RadioPlayer = () => {
         await audio.play();
         setIsPlaying(true);
       } catch {
-        // Autoplay might be blocked, wait for user interaction
         const playOnUserInteraction = () => {
           audio.play()
             .then(() => setIsPlaying(true))
@@ -52,18 +52,21 @@ const RadioPlayer = () => {
         Your browser does not support the audio element.
       </audio>
 
-      <div className="station-info">
-        <span className="station-title">Tamil FM Live</span>
-        <span className="live-tag">NOW PLAYING</span>
-        <span className="tagline">Streaming Live Tamil Songs</span>
+      <div className="logo-title">
+        <img src="/fm.gif" alt="Tamil FM Logo" className="station-logo" />
+        <div className="station-info">
+          <span className="station-title">89.4 Tamil FM</span>
+          <span className="live-tag">LIVE NOW</span>
+          <span className="tagline">Namma Radio Na</span>
+        </div>
       </div>
 
       <button
-        className="stop-btn"
+        className="play-btn"
         onClick={togglePlay}
         aria-label={isPlaying ? 'Pause' : 'Play'}
       >
-        {isPlaying ? '⏸' : '▶️'}
+        {isPlaying ? '❚❚' : '▶'}
       </button>
     </div>
   );

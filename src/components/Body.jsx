@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -7,11 +8,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/_body.scss';
 
-// 🔹 Simulated JSON data (can be replaced with an API call)
 const bannerData = [
   {
     title: "NaaM IT Care",
-    image: "/banners/itcare.jpg",
+    image: "/banners/pexels-photo-164829.webp",
     alt: "NaaM IT Care Banner"
   },
   {
@@ -35,7 +35,6 @@ const Body = () => {
   const [banners, setBanners] = useState([]);
 
   useEffect(() => {
-    // Simulate API call
     setBanners(bannerData);
   }, []);
 

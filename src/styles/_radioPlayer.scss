@@ -1,100 +1,216 @@
+
 .radio-player {
-  background: #d32f2f;
-  color: white;
-  padding: 20px 30px;
-  border-radius: 16px;
-  margin: 20px auto;
-  max-width: 900px;
+  background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
 
-  .station-info {
+  .logo-title {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 
-    .station-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .station-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      animation: rotate 10s linear infinite;
     }
 
-    .live-tag {
-      background: #ffc107;
-      color: #000;
-      padding: 2px 10px;
-      font-size: 0.75rem;
-      border-radius: 12px;
-      width: fit-content;
-      margin-bottom: 4px;
-    }
+    .station-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
 
-    .tagline {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: #f5f5f5;
+      .station-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .live-tag {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 2px 8px;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-align: center;
+        animation: pulse 2s infinite;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        font-style: italic;
+      }
     }
   }
 
-  .stop-btn {
-    background: white;
-    color: #d32f2f;
-    border: none;
-    width: 50px;
-    height: 50px;
+  .play-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &:hover,
-    &:focus {
-      background-color: #f0f0f0;
-      outline: none;
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: scale(1.1);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     }
-  }
 
-  audio {
-    display: none; // Hide native audio controls
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
 
-/* Responsive */
+// Animations
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+// Tablet Styles (768px and below)
 @media (max-width: 768px) {
   .radio-player {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
+    padding: 15px;
 
-    .station-info {
-      margin-bottom: 10px;
+    .logo-title {
+      gap: 12px;
+
+      .station-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .station-info {
+        .station-title {
+          font-size: 1.2rem;
+        }
+
+        .live-tag {
+          font-size: 0.65rem;
+          padding: 1px 6px;
+        }
+
+        .tagline {
+          font-size: 0.8rem;
+        }
+      }
     }
 
-    .stop-btn {
-      align-self: flex-end;
+    .play-btn {
+      width: 60px;
+      height: 60px;
+      font-size: 1.3rem;
     }
   }
 }
 
+// Mobile Styles (480px and below)
 @media (max-width: 480px) {
   .radio-player {
-    padding: 12px 16px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
 
-    .station-info {
-      .station-title {
-        font-size: 1.2rem;
+    .logo-title {
+      gap: 10px;
+      justify-content: center;
+
+      .station-logo {
+        width: 45px;
+        height: 45px;
       }
-      .tagline {
-        font-size: 0.8rem;
+
+      .station-info {
+        .station-title {
+          font-size: 1.1rem;
+        }
+
+        .live-tag {
+          font-size: 0.6rem;
+          padding: 1px 5px;
+        }
+
+        .tagline {
+          font-size: 0.75rem;
+        }
       }
     }
 
-    .stop-btn {
-      width: 44px;
-      height: 44px;
-      font-size: 1.3rem;
+    .play-btn {
+      width: 55px;
+      height: 55px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Extra small devices (320px and below)
+@media (max-width: 320px) {
+  .radio-player {
+    padding: 10px;
+
+    .logo-title {
+      gap: 8px;
+
+      .station-logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .station-info {
+        .station-title {
+          font-size: 1rem;
+        }
+
+        .live-tag {
+          font-size: 0.55rem;
+        }
+
+        .tagline {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .play-btn {
+      width: 50px;
+      height: 50px;
+      font-size: 1.1rem;
     }
   }
 }
