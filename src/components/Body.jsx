@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -6,29 +5,13 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../styles/_body.scss';
+import "../styles/_body.scss";
 
 const bannerData = [
-  {
-    title: "NaaM IT Care",
-    image: "/banners/pexels-photo-164829.webp",
-    alt: "NaaM IT Care Banner"
-  },
-  {
-    title: "NaaM FM",
-    image: "/banners/fm.jpg",
-    alt: "NaaM FM Banner"
-  },
-  {
-    title: "NaaM Classified",
-    image: "/banners/classified.jpg",
-    alt: "NaaM Classified Banner"
-  },
-  {
-    title: "NaaM Break Time",
-    image: "/banners/breaktime.jpg",
-    alt: "NaaM Break Time Banner"
-  }
+  { title: "NaaM IT Care", image: "/banners/Untitled Project.jpg", alt: "NaaM IT Care Banner" },
+  { title: "NaaM FM", image: "/banners/Designer.png", alt: "NaaM FM Banner" },
+  { title: "NaaM Classified", image: "/banners/classified.png", alt: "NaaM Classified Banner" },
+  { title: "NaaM Break Time", image: "/banners/breaktime.png", alt: "NaaM Break Time Banner" }
 ];
 
 const Body = () => {

@@ -1,20 +1,34 @@
+/* ================================
+   Global Reset + Page Background
+================================= */
+body {
+  margin: 0;
+  background-color: black; // full page black
+  font-family: Arial, sans-serif;
+  margin-top: 80px; // ⬆️ Bigger top margin on desktop
+}
 
+/* ================================
+   Main Content Section
+================================= */
 .body-content {
   width: 100%;
-  min-height: 60vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 80vh;
+  background-color: black; // black section
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 
+  /* ================================
+     Image Slider
+  ================================= */
   .image-slider {
     width: 100%;
     max-width: 1200px;
     height: 500px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
     .swiper-slide {
       width: 100%;
@@ -34,11 +48,10 @@
       }
     }
 
-    // Navigation arrows
+    /* Navigation arrows */
     .swiper-button-next,
     .swiper-button-prev {
       color: #e50914;
-      background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
       width: 50px;
       height: 50px;
@@ -57,7 +70,7 @@
       }
     }
 
-    // Pagination dots
+    /* Pagination dots */
     .swiper-pagination {
       bottom: 20px;
 
@@ -70,7 +83,7 @@
         transition: all 0.3s ease;
 
         &.swiper-pagination-bullet-active {
-          background: #e50914;
+          background: #e50914; // 🔴 Netflix red active dot
           transform: scale(1.2);
         }
       }
@@ -78,8 +91,14 @@
   }
 }
 
-// Tablet Styles (768px and below)
+/* ================================
+   Tablet Styles (768px and below)
+================================= */
 @media (max-width: 768px) {
+  body {
+    margin-top: 70px; // ⬆️ Increased top margin for tablets
+  }
+
   .body-content {
     padding: 15px;
     min-height: 50vh;
@@ -112,8 +131,14 @@
   }
 }
 
-// Mobile Styles (480px and below)
+/* ================================
+   Mobile Styles (480px and below)
+================================= */
 @media (max-width: 480px) {
+  body {
+    margin-top: 60px; // ⬆️ Increased margin for mobile
+  }
+
   .body-content {
     padding: 10px;
     min-height: 40vh;
@@ -146,8 +171,14 @@
   }
 }
 
-// Extra small devices (320px and below)
+/* ================================
+   Extra Small Devices (320px)
+================================= */
 @media (max-width: 320px) {
+  body {
+    margin-top: 80px; // ⬆️ Increased margin for tiny screens
+  }
+
   .body-content {
     padding: 5px;
 

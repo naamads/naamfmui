@@ -1,159 +1,121 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
-  FaMusic,
-  FaPause,
-  FaBars,
-  FaTimes,
-  FaEnvelope,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa";
+  Menu,
+  X,
+  Play,
+  Pause,
+  Mail,
+  MessageCircle,
+  Instagram,
+  Twitter,
+} from "lucide-react";
+import { useRadio } from "../context/RadioContext";
 import "../styles/_header.scss";
 
-export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+const Header = ({
+  logo = "Mr.localNaam FM",
+  logoImg = "/banners/logo.jpeg",   // logo path
+  email = "Naam.lavanya@gmail.com",
+}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isPlaying, togglePlay } = useRadio();
 
+  // lock/unlock scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [menuOpen]);
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+  }, [isMenuOpen]);
 
-  const togglePlay = async () => {
-    if (!audioRef.current) return;
-    try {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        await audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    } catch (err) {
-      console.error("Audio playback error:", err);
-    }
-  };
-
-  const closeMenu = () => setMenuOpen(false);
+  const navigationLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about-us" },
+    { label: "Naam Group", href: "/naam-group" },
+    { label: "FM RK", href: "/fm-rk" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
-    <header className="header">
-      {/* Top bar */}
-      <div className="top-bar">
-        {/* Left: hamburger */}
-        <button
-          className="hamburger"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMenuOpen((s) => !s)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+    <>
+      {/* Top Header */}
+      <header className="header">
+        <div className="top-bar">
+          {/* Hamburger */}
+          <button
+            className="hamburger"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu size={24} />
+          </button>
 
-        {/* Center: logo */}
-        <div className="logo">
-          <a href="/">
-            <img src="/path/to/logo.png" alt="NAAM Logo" />
-          </a>
+          {/* Logo */}
+          <div className="logo">
+            <a href="/">
+              {logoImg ? (
+                <img src={logoImg} alt={logo} className="logo-img" />
+              ) : (
+                <h1>{logo}</h1>
+              )}
+            </a>
+          </div>
+
+          {/* Play button */}
+          <div className="right-icons">
+            <button className="music-btn" onClick={togglePlay}>
+              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+            </button>
+          </div>
         </div>
-
-        {/* Right: music button */}
-        <button
-          className="music-btn"
-          aria-label={isPlaying ? "Pause stream" : "Play stream"}
-          onClick={togglePlay}
-        >
-          {isPlaying ? <FaPause /> : <FaMusic />}
-        </button>
-
-        {/* audio player (hidden) */}
-        <audio
-          ref={audioRef}
-          src="https://centova.aarenworld.com/proxy/894tamilfm/stream" // <-- replace with actual stream URL
-          preload="none"
-        />
-      </div>
+      </header>
 
       {/* Overlay */}
-      {menuOpen && (
-        <div
-          className="overlay"
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
+      {isMenuOpen && (
+        <div className="overlay" onClick={() => setIsMenuOpen(false)} />
       )}
 
-      {/* Slide menu */}
-      <aside
-        className={`slide-menu ${menuOpen ? "open" : ""}`}
-        aria-hidden={!menuOpen}
-      >
-        <button
-          className="close-btn"
-          aria-label="Close menu"
-          onClick={closeMenu}
-        >
-          <FaTimes />
+      {/* Slide Menu */}
+      <nav className={`slide-menu ${isMenuOpen ? "open" : ""}`}>
+        <button className="close-btn" onClick={() => setIsMenuOpen(false)}>
+          <X size={24} />
         </button>
 
+        {/* Logo in menu */}
         <div className="slide-logo">
-          <a href="/" onClick={closeMenu}>
-            <img src="/path/to/logo.png" alt="NAAM Logo" />
+          <a href="/">
+            {logoImg ? (
+              <img src={logoImg} alt={logo} className="logo-img" />
+            ) : (
+              <h2>{logo}</h2>
+            )}
           </a>
         </div>
 
+        {/* Links */}
         <ul className="slide-links">
-          <li>
-            <a href="/" onClick={closeMenu}>Home</a>
-          </li>
-          <li>
-            <a href="/about" onClick={closeMenu}>About Us</a>
-          </li>
-          <li>
-            <a href="/naam-groups" onClick={closeMenu}>Naam Groups</a>
-          </li>
-          <li>
-            <a href="/fm-rk" onClick={closeMenu}>FM RK</a>
-          </li>
-          <li>
-            <a href="/contact" onClick={closeMenu}>Contact Us</a>
-          </li>
+          {navigationLinks.map((link, idx) => (
+            <li key={idx}>
+              <a href={link.href} onClick={() => setIsMenuOpen(false)}>
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
+        {/* Footer */}
         <div className="slide-footer">
-          <a href="mailto:naam.lavanya@gmail.co" className="slide-email">
-            <FaEnvelope /> naam.lavanya@gmail.co
-          </a>
+          <div className="slide-email">
+            <Mail size={16} />
+            <span>{email}</span>
+          </div>
           <div className="social-row">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twitter"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
+            <a href="#"><Instagram size={18} /></a>
+            <a href="#"><Twitter size={18} /></a>
+            <a href={`mailto:${email}`}>
+              <MessageCircle size={18} />
             </a>
           </div>
         </div>
-      </aside>
-    </header>
+      </nav>
+    </>
   );
-}
+};
+
+export default Header;
