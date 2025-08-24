@@ -14,7 +14,7 @@ import "../styles/_header.scss";
 
 const Header = ({
   logo = "Mr.localNaam FM",
-  logoImg = "/banners/logo.jpeg",   // logo path
+  logoImg = "/banners/logo.png",   // logo path
   email = "Naam.lavanya@gmail.com",
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
