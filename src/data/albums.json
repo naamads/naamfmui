@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "I'm a mess",
+    "artist": "Bebe Rexha",
+    "image": "/images/mess.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Natural",
+    "artist": "Imagine Dragons",
+    "image": "/images/natural.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Sweet But Psycho",
+    "artist": "Ava Max",
+    "image": "/images/sweet.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Waiting For Love",
+    "artist": "Avicii",
+    "image": "/images/love.jpg"
+  },
+  {
+    "id": 5,
+    "title": "So Am I",
+    "artist": "Ava Max",
+    "image": "/images/soami.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Mamma Mia",
+    "artist": "Hugel ft. Amber",
+    "image": "/images/mamma.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Bad Guy",
+    "artist": "Billie Eilish",
+    "image": "/images/badguy.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Let Me Down Slowly",
+    "artist": "Alec Benjamin",
+    "image": "/images/slowly.jpg"
+  }
+]

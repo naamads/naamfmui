@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "RJ Madhu", "image": "/photos/madhu.png" },
+  { "id": 2, "name": "RJ Krishnie", "image": "/photos/Krishnie.jpg" },
+  { "id": 3, "name": "RJ Nivedha", "image": "/photos/Nivedha.jpg" },
+  { "id": 4, "name": "RJ Kirthana", "image": "/photos/Kirthana.jpg" },
+  { "id": 5, "name": "RJ Bravo", "image": "/photos/bravo.jpg" },
+  { "id": 6, "name": "RJ Priya", "image": "/photos/priya.jpg" }
+]

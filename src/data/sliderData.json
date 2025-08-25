@@ -1,0 +1,15 @@
+{
+  "naamFmSlider": [
+    { "id": 1, "image": "/images/naam-fm1.jpg", "title": "Naam FM Show 1" },
+    { "id": 2, "image": "/images/naam-fm2.jpg", "title": "Naam FM Show 2" }
+  ],
+  "classifierSlider": [
+    { "id": 1, "image": "/images/classifier1.jpg", "title": "Classifier Special" }
+  ],
+  "breakTimeSlider": [
+    { "id": 1, "image": "/images/break1.jpg", "title": "Naam Break Time" }
+  ],
+  "rjSlider": [
+    { "id": 1, "image": "/images/rj1.jpg", "title": "Our RJ Team" }
+  ]
+}

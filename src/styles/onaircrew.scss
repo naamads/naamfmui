@@ -1,0 +1,142 @@
+.onaircrew {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #2b0f4a, #1b0b33);
+
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .crew-card {
+      flex: 0 0 33.33%;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0.7;
+      transition: opacity 0.4s ease;
+
+      &.active {
+        opacity: 1;
+      }
+
+      .crew-image {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        border: 3px solid #ff4bdb;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      .crew-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff4bdb;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #fff;
+      z-index: 2;
+      transition: background 0.3s ease;
+
+      &.left {
+        left: 10px;
+      }
+      &.right {
+        right: 10px;
+      }
+
+      &:hover {
+        background: #ff77e6;
+      }
+    }
+  }
+}
+
+/* 🔹 Rectangle ↔ Diamond Animation */
+.animate-shape {
+  animation: morphShape 2s infinite alternate ease-in-out;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); // rectangle default
+}
+
+@keyframes morphShape {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); // rectangle
+    border-radius: 0%;
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); // diamond
+    border-radius: 10%;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); // rectangle again
+    border-radius: 0%;
+  }
+}
+
+/* 🔹 Responsive Styles */
+@media (max-width: 1024px) {
+  .onaircrew {
+    .carousel {
+      .crew-card {
+        flex: 0 0 50%;
+        .crew-image {
+          width: 160px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .onaircrew {
+    .carousel {
+      .crew-card {
+        flex: 0 0 100%;
+        .crew-image {
+          width: 120px;
+          height: 120px;
+        }
+        .crew-name {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

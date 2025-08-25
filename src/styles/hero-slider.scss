@@ -1,0 +1,233 @@
+@import 'variables'; // optional variables.scss for spacing & breakpoints
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
+  overflow: hidden;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: $tablet) {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  @media (max-width: $mobile) {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(1.1);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(30, 58, 138, 0.8) 0%,
+      rgba(59, 130, 246, 0.6) 30%,
+      rgba(96, 165, 250, 0.4) 70%,
+      rgba(30, 58, 138, 0.8) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 800px;
+    padding: $spacing-xl;
+    animation: slideUp 1s ease-out;
+
+    @media (max-width: $tablet) {
+      max-width: 600px;
+      padding: $spacing-lg;
+    }
+
+    @media (max-width: $mobile) {
+      padding: $spacing-md;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: $spacing-lg;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+
+    @media (max-width: $tablet) {
+      font-size: 3rem;
+      margin-bottom: $spacing-md;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 2.2rem;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    color: #e0f2fe;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1.4;
+
+    @media (max-width: $tablet) {
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.8);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    &--prev {
+      left: $spacing-lg;
+
+      @media (max-width: $mobile) {
+        left: $spacing-sm;
+      }
+    }
+
+    &--next {
+      right: $spacing-lg;
+
+      @media (max-width: $mobile) {
+        right: $spacing-sm;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__indicators {
+    position: absolute;
+    bottom: $spacing-lg;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: $spacing-sm;
+    z-index: 10;
+
+    @media (max-width: $mobile) {
+      bottom: $spacing-md;
+      gap: $spacing-xs;
+    }
+  }
+
+  &__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &.active {
+      background: #3b82f6;
+      border-color: #3b82f6;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    }
+
+    @media (max-width: $mobile) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+// 🔥 Slide-up animation
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Global blue gradient background
+body {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+}
+
+// App container theme
+.app {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 58, 138, 0.95) 0%,
+    rgba(37, 99, 235, 0.9) 50%,
+    rgba(59, 130, 246, 0.85) 100%
+  );
+  min-height: 100vh;
+}
