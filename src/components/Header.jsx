@@ -1,66 +1,103 @@
 import React, { useState } from "react";
-import { Play, Pause, X } from "lucide-react"; // icons
+import {
+  Play,
+  Pause,
+  Phone,
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Menu,
+  X,
+} from "lucide-react";
 import "../styles/Header.scss";
 
-const Header = () => {
+const Header = ({ isPlaying, togglePlay }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [language, setLanguage] = useState("EN"); // Language state
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "EN" ? "TN" : "EN"));
+  };
 
   return (
     <header className="header">
-      <div className="container header-container">
-        {/* Logo */}
-        <div className="logo">
-          <a href="/">
-            MR<span>Local NaaM FM </span>
-          </a>
-        </div>
+      <div className="header__container">
+        <div className="header__content">
+          {/* Left: Brand */}
+          <div className="header__left">
+            <h1 className="header__brand">NaaM FM</h1>
+          </div>
 
-        {/* Desktop Navigation */}
-        <nav className="nav-desktop">
-          <ul>
-            <li><a href="/" className="active">HOME</a></li>
-            <li><a href="/aboutUs">ABOUT</a></li>
-            <li><a href="/albums">NAAM GROUP</a></li>
-            <li><a href="/tours">NAAM RJ </a></li>
-            <li><a href="/pages">PAGES</a></li>
-            <li><a href="/blog">BLOG</a></li>
-            <li><a href="/contact">CONTACT</a></li>
-          </ul>
-        </nav>
-
-        {/* Music Play/Pause */}
-        <button 
-          className="player-btn" 
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
-          {isPlaying ? <Pause size={20}/> : <Play size={20}/>}
-        </button>
-
-        {/* Mobile Toggle */}
-        <button className="menu-toggle" onClick={() => setMenuOpen(true)}>
-          MENU ☰
-        </button>
-      </div>
-
-      {/* Gray Right-Side Menu */}
-      <div className={`side-menu ${menuOpen ? "open" : ""}`}>
-        <div className="side-header">
-          <span>MENU</span>
-          <button className="close-btn" onClick={() => setMenuOpen(false)}>
-            <X size={20} />
+          {/* Center: Play / Pause Button */}
+          <button className="header__play" onClick={togglePlay}>
+            {isPlaying ? (
+              <Pause size={24} className="header__play-icon" />
+            ) : (
+              <Play size={24} className="header__play-icon" />
+            )}
           </button>
+
+          {/* Right: Contact + Social + Menu + Language */}
+          <div className="header__right">
+            <div className="header__contact">
+              <Phone className="header__phone-icon" size={18} />
+              <span className="header__phone-text">+91 98765 43210</span>
+            </div>
+
+            <div className="header__socials">
+              <a href="#" className="header__social-link">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="header__social-link">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="header__social-link">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="header__social-link">
+                <Youtube size={20} />
+              </a>
+            </div>
+
+            {/* Language Toggle */}
+            <button
+              className="header__lang"
+              onClick={toggleLanguage}
+              title="Switch Language"
+            >
+              {language}
+            </button>
+
+            {/* Menu Button */}
+            <button
+              className="header__menu"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
-        <ul>
-          <li><a href="/" className="active">HOME</a></li>
-          <li><a href="/aboutUs">ABOUT US </a></li>
-          <li><a href="/albums">ALBUMS</a></li>
-          <li><a href="/tours">TOURS</a></li>
-          <li><a href="/pages">PAGES</a></li>
-          <li><a href="/blog">BLOG</a></li>
-          <li><a href="/contact">CONTACT</a></li>
-        </ul>
       </div>
+
+      {/* Mobile Navigation */}
+      {menuOpen && (
+        <nav className="header__nav">
+          <div className="header__nav-container">
+            <div className="header__nav-content">
+              <a href="/" className="header__nav-link">
+                Home
+              </a>
+              <a href="/aboutUs" className="header__nav-link">
+                About Us
+              </a>
+              <a href="#" className="header__nav-link">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

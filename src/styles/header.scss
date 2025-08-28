@@ -1,155 +1,203 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Great+Vibes&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  background: #000;
-  color: #fff;
-  padding-top: 80px; // keep content below fixed header
-}
-
-/* ---------------- HEADER ---------------- */
 .header {
-  width: 100%;
-  background: #000;
-  padding: 15px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  background: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #312e81 100%);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  font-family: "Arial", sans-serif;
 
-  .header-container {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0.5rem 0;
   }
 
-  .logo a {
-    font-size: 32px;
-    font-weight: 800;
-    color: #fff;
-    text-decoration: none;
-
-    span {
-      color: #e600ff;
-    }
-  }
-
-  .nav-desktop {
-    ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-
-      li a {
-        color: #fff;
-        font-weight: 600;
-        text-decoration: none;
-        transition: 0.3s;
-
-        &:hover,
-        &.active {
-          color: #e600ff;
-        }
-      }
-    }
-  }
-
-  .player-btn {
-    background: #333;
-    border: none;
-    margin-left: 15px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      background: #555;
-    }
-  }
-
-  .menu-toggle {
-    display: none;
-    background: #4c4c4c;
-    border: none;
-    padding: 10px 15px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-}
-
-/* ---------------- SIDE MENU ---------------- */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 280px;
-  height: 100vh;
-  background: #4c4c4c;
-  transition: 0.4s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  z-index: 1200;
-
-  .side-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 30px;
-
-    .close-btn {
-      background: transparent;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-  }
-
-  ul {
-    list-style: none;
+  &__left {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+  }
 
-    li a {
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      transition: 0.3s;
+  &__brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fb24ed, #16b5f9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
 
-      &:hover,
-      &.active {
-        color: #e600ff;
-      }
+    @media (min-width: 768px) {
+      font-size: 1.75rem;
     }
   }
 
-  &.open {
-    right: 0;
+  &__play {
+    background: linear-gradient(135deg, #ef4444, #ec4899);
+    border: none;
+    border-radius: 50%;
+    padding: 0.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #dc2626, #db2777);
+      transform: scale(1.05);
+    }
+
+    &-icon {
+      color: white;
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__contact {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    padding: 0.35rem 0.75rem;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__phone-icon {
+    color: #4ade80;
+    font-size: 0.9rem;
+  }
+
+  &__phone-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  &__socials {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
+
+  &__social-link {
+    color: white;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__lang {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.35rem 0.5rem;
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__menu {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.35rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__nav {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideDown 0.3s ease-out;
+
+    &-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+    }
+
+    &-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.4rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #fbbf24;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 992px) {
-  .nav-desktop {
-    display: none;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .menu-toggle {
-    display: block;
+// Responsive adjustments
+@media (max-width: 640px) {
+  .header {
+    &__brand {
+      font-size: 1.25rem;
+    }
+
+    &__play {
+      padding: 0.5rem;
+    }
+
+    &__right {
+      gap: 0.4rem;
+    }
   }
 }

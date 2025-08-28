@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../styles/hero-slider.scss";
+import "/public/images/microphone.jpg";
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,31 +9,33 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?w=1200",
+      image:
+        "https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop",
       title: "Welcome to",
       subtitle: "Your Voice, Your Music, Your Station",
     },
     {
       id: 2,
-      image: "https://images.pexels.com/photos/744780/pexels-photo-744780.jpeg?w=1200",
-      title: "Your Local Voice",
-      subtitle: "Connecting Hearts Through Music",
-    },
-    {
-      id: 3,
-      image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?w=1200",
+      image: "/images/microphone.jpg",
       title: "Local News",
       subtitle: "Stay Updated",
     },
     {
+      id: 3,
+      image: "/public/images/Naam.jpg",
+      title: "NaaM Break Time",
+      subtitle: "Connecting Hearts Through Music",
+    },
+    {
       id: 4,
-      image: "https://images.pexels.com/photos/3784424/pexels-photo-3784424.jpeg?w=1200",
+      image:
+        "https://images.pexels.com/photos/3784424/pexels-photo-3784424.jpeg?w=1200",
       title: "Live Shows",
       subtitle: "Connect with Community",
     },
   ];
 
-  // Auto-advance
+  // Auto advance every 5s
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -62,20 +65,15 @@ const HeroSlider = () => {
             />
             <div className="hero-slider__overlay">
               <div className="hero-slider__content">
-                <h4 className="hero-slider__tagline">The electro vibe</h4>
-                <h2 className="hero-slider__title">
-                  {slide.title} - Mr.Local NaaM FM
-                </h2>
+                <h4 className="hero-slider__tagline">NaaM FM Vibes</h4>
+                <h2 className="hero-slider__title">{slide.title}</h2>
                 <p className="hero-slider__subtitle">{slide.subtitle}</p>
-                <a href="#tickets" className="hero-slider__btn">
-                  BUY TICKETS
-                </a>
               </div>
             </div>
           </div>
         ))}
 
-        {/* Navigation */}
+        {/* Navigation Arrows */}
         <button
           className="hero-slider__nav hero-slider__nav--prev"
           onClick={prevSlide}

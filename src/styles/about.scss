@@ -5,7 +5,7 @@
   padding: 5rem 0;
   background: #0c0c1e;
   color: #fff;
-  font-family: "Montserrat", sans-serif; // base font (body text)
+  font-family: "Montserrat", sans-serif;
 
   &__container {
     display: flex;
@@ -32,6 +32,12 @@
       max-width: 420px;
       border-radius: 12px;
       object-fit: cover;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -44,8 +50,7 @@
       color: #ff00c8;
       margin-bottom: 0.6rem;
       text-transform: capitalize;
-       font-family: "Satisfy", cursive;
-     
+      font-family: "Satisfy", cursive;
     }
 
     .about__title {
@@ -55,8 +60,13 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       line-height: 1.2;
-       font-family: "Montserrat", sans-serif;
-      // ✨ Fancy script only for main title
+      font-family: "Montserrat", sans-serif;
+
+      .icon {
+        color: #ff00c8;
+        margin: 0 8px;
+        vertical-align: middle;
+      }
     }
 
     .about__text {
@@ -67,10 +77,22 @@
       font-weight: 400;
       max-width: 550px;
       font-family: "Montserrat", sans-serif;
+
+      .icon {
+        color: #ff00c8;
+        margin: 0 4px;
+        vertical-align: middle;
+      }
+
+      .heart {
+        color: #ff4d6d;
+      }
     }
 
     .about__btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: linear-gradient(90deg, #b5179e, #7209b7);
       color: #fff;
       padding: 1rem 2rem;
@@ -82,11 +104,45 @@
       transition: all 0.3s ease;
       font-family: "Montserrat", sans-serif;
 
+      svg {
+        font-size: 1.2rem;
+      }
+
       &:hover {
         background: linear-gradient(90deg, #7209b7, #b5179e);
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
+    }
+  }
+
+  /* 📱 Mobile Responsive */
+  @media (max-width: 768px) {
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__text {
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+
+    &__btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* 📱 Small Screens */
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__subtitle {
+      font-size: 1.3rem;
     }
   }
 }

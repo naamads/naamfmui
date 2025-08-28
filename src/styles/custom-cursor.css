@@ -1,0 +1,2 @@
+/* hide the default mouse pointer site-wide */
+body { cursor: none !important; }
