@@ -1,8 +1,8 @@
 [
-  { "id": 1, "name": "RJ Madhu", "image": "/photos/madhu.png" },
-  { "id": 2, "name": "RJ Krishnie", "image": "/photos/Krishnie.jpg" },
-  { "id": 3, "name": "RJ Nivedha", "image": "/photos/Nivedha.jpg" },
-  { "id": 4, "name": "RJ Kirthana", "image": "/photos/Kirthana.jpg" },
-  { "id": 5, "name": "RJ Bravo", "image": "/photos/bravo.jpg" },
-  { "id": 6, "name": "RJ Priya", "image": "/photos/priya.jpg" }
+  { "id": 1, "name": "RJ Madhu", "nameTN": "ஆர் ஜே மது", "image": "/photos/madhu.png" },
+  { "id": 2, "name": "RJ Krishnie", "nameTN": "ஆர் ஜே கிருஷ்ணி", "image": "/photos/Krishnie.jpg" },
+  { "id": 3, "name": "RJ Nivedha", "nameTN": "ஆர் ஜே நிவேதா", "image": "/photos/Nivedha.jpg" },
+  { "id": 4, "name": "RJ Kirthana", "nameTN": "ஆர் ஜே கிர்தனா", "image": "/photos/Kirthana.jpg" },
+  { "id": 5, "name": "RJ Bravo", "nameTN": "ஆர் ஜே பிராவோ", "image": "/photos/bravo.jpg" },
+  { "id": 6, "name": "RJ Priya", "nameTN": "ஆர் ஜே பிரியா", "image": "/photos/priya.jpg" }
 ]

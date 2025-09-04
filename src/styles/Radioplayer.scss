@@ -3,8 +3,10 @@
   color: #fff;
   text-align: center;
 
-  // Gradient background
-  background: linear-gradient(135deg, #3a0ca3, #7209b7, #560bad, #b5179e);
+  // Gradient overlay background
+  background:
+    linear-gradient(135deg, rgba(58, 12, 163, 0.7), rgba(181, 23, 158, 0.7)),
+    url('/images/radioplayer.jpg') no-repeat center center / cover;
 
   .container {
     max-width: 800px;
@@ -21,6 +23,17 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+  }
+
+  .now-playing-image {
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 1rem;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      margin-bottom: 0.8rem;
+    }
   }
 
   .now-playing {

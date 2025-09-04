@@ -8,71 +8,65 @@ import {
   Twitter,
   Youtube,
   Menu,
-  X,
+  X
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import "../styles/Header.scss";
+import translations from "/src/data/Header.json"; // Import JSON
 
-const Header = ({ isPlaying, togglePlay }) => {
+const Header = ({ isPlaying, togglePlay, language = "EN", setLanguage }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("EN"); // Language state
-
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "EN" ? "TN" : "EN"));
-  };
+  const t = translations[language] || translations.EN;
 
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__content">
-          {/* Left: Brand */}
           <div className="header__left">
             <h1 className="header__brand">NaaM FM</h1>
+            <span className="header__group">{t.group}</span>
           </div>
 
-          {/* Center: Play / Pause Button */}
-          <button className="header__play" onClick={togglePlay}>
-            {isPlaying ? (
-              <Pause size={24} className="header__play-icon" />
-            ) : (
-              <Play size={24} className="header__play-icon" />
-            )}
+          <button className="header__play" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+            {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
 
-          {/* Right: Contact + Social + Menu + Language */}
           <div className="header__right">
             <div className="header__contact">
-              <Phone className="header__phone-icon" size={18} />
-              <span className="header__phone-text">+91 98765 43210</span>
+              <Phone size={18} />
+              <span>{t.phone}</span>
             </div>
 
             <div className="header__socials">
-              <a href="#" className="header__social-link">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="header__social-link">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="header__social-link">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="header__social-link">
-                <Youtube size={20} />
-              </a>
+              <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
+              <a href="#" aria-label="YouTube"><Youtube size={20} /></a>
             </div>
 
-            {/* Language Toggle */}
-            <button
-              className="header__lang"
-              onClick={toggleLanguage}
-              title="Switch Language"
-            >
-              {language}
-            </button>
+            {/* Language Toggle Buttons */}
+            <div className="header__lang-toggle">
+              <button
+                className={`btn-ta ${language === "TN" ? "active" : ""}`}
+                onClick={() => setLanguage("TN")}
+                aria-pressed={language === "TN"}
+              >
+                TA
+              </button>
+              <button
+                className={`btn-en ${language === "EN" ? "active" : ""}`}
+                onClick={() => setLanguage("EN")}
+                aria-pressed={language === "EN"}
+              >
+                EN
+              </button>
+            </div>
 
-            {/* Menu Button */}
             <button
               className="header__menu"
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -80,20 +74,15 @@ const Header = ({ isPlaying, togglePlay }) => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {menuOpen && (
-        <nav className="header__nav">
+        <nav className="header__nav" role="navigation" aria-label="Main menu">
           <div className="header__nav-container">
             <div className="header__nav-content">
-              <a href="/" className="header__nav-link">
-                Home
-              </a>
-              <a href="/aboutUs" className="header__nav-link">
-                About Us
-              </a>
-              <a href="#" className="header__nav-link">
-                Contact Us
-              </a>
+              <Link to="/" className="header__nav-link">{t.home}</Link>
+              <Link to="/naam-group" className="header__nav-link">{t.groupMenu}</Link>
+              <Link to="/aboutUs" className="header__nav-link">{t.about}</Link>
+              <Link to="/contact" className="header__nav-link">{t.contact}</Link>
+              <Link to="/it-care" className="header__nav-link header__nav-link--special">{t.menuGroup}</Link>
             </div>
           </div>
         </nav>

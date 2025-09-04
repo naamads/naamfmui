@@ -1,10 +1,9 @@
 .header {
   background: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #312e81 100%);
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  position: relative;
   font-family: "Arial", sans-serif;
+  position: relative;
+  overflow: hidden;
 
   &__container {
     max-width: 1200px;
@@ -17,6 +16,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 0;
+    animation: fadeSlide 0.8s ease-out;
   }
 
   &__left {
@@ -27,15 +27,27 @@
   &__brand {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #fb24ed, #16b5f9);
+    background: linear-gradient(135deg, #fb24ed, #16b5f9, #facc15);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
+    animation: textFlow 3s linear infinite;
 
     @media (min-width: 768px) {
       font-size: 1.75rem;
     }
+  }
+
+  &__group {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #facc15;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: glowPulse 2.5s infinite alternate;
+    margin-top: 2px;
   }
 
   &__play {
@@ -52,12 +64,6 @@
     &:hover {
       background: linear-gradient(135deg, #dc2626, #db2777);
       transform: scale(1.05);
-    }
-
-    &-icon {
-      color: white;
-      font-size: 1rem;
-      transition: transform 0.2s ease;
     }
   }
 
@@ -81,16 +87,6 @@
     }
   }
 
-  &__phone-icon {
-    color: #4ade80;
-    font-size: 0.9rem;
-  }
-
-  &__phone-text {
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-
   &__socials {
     display: none;
     align-items: center;
@@ -99,29 +95,58 @@
     @media (min-width: 1024px) {
       display: flex;
     }
-  }
 
-  &__social-link {
-    color: white;
-    font-size: 0.9rem;
-    transition: transform 0.2s ease;
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: transform 0.3s ease;
 
-    &:hover {
-      transform: scale(1.1);
+      svg {
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+        transition: color 0.3s ease, filter 0.3s ease;
+      }
+
+      &::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: 
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" opacity="0.1"><circle cx="5" cy="5" r="2"/></svg>') repeat;
+        background-size: 10px 10px;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        animation: grain 2s linear infinite;
+        z-index: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+
+        &::before {
+          opacity: 0.7;
+        }
+
+        svg {
+          color: #facc15; /* golden glow */
+          filter: drop-shadow(0 0 6px #facc15);
+        }
+      }
     }
   }
 
-  &__lang {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 0.4rem;
-    padding: 0.35rem 0.5rem;
-    cursor: pointer;
-    color: white;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
+  &__lang-toggle {
+    display: flex;
+    gap: 0.5rem;
   }
 
   &__menu {
@@ -130,20 +155,50 @@
     border-radius: 0.4rem;
     padding: 0.35rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Grainy Multiply Color Effect */
+    &::before {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" opacity="0.1"><circle cx="5" cy="5" r="2"/></svg>') repeat;
+      background-size: 10px 10px;
+      mix-blend-mode: multiply;
+      opacity: 0.7;
+      animation: grain 2s linear infinite;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    svg {
+      position: relative;
+      z-index: 2;
+      color: white;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
     }
   }
 
   &__nav {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    animation: slideDown 0.3s ease-out;
+    animation: slideDown 0.4s ease-out;
 
     &-container {
       max-width: 1200px;
@@ -156,25 +211,109 @@
       flex-direction: column;
       gap: 0.75rem;
       padding: 0.75rem 0;
+      animation: fadeInUp 0.5s ease;
     }
 
     &-link {
       color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       text-decoration: none;
-      font-weight: 500;
-      padding: 0.4rem 0.75rem;
-      border-radius: 0.4rem;
-      transition: all 0.2s ease;
 
       &:hover {
-        color: #fbbf24;
-        background: rgba(255, 255, 255, 0.1);
+        color: #facc15;
+      }
+
+      &--special {
+        color: #22d3ee;
+        font-weight: 700;
+
+        &:hover {
+          color: #38bdf8;
+        }
       }
     }
   }
 }
 
-@keyframes slideDown {
+/* Language Toggle Buttons */
+.language-button {
+  position: relative;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 0.9rem;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.7);
+  }
+
+  &::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" opacity="0.05"><circle cx="5" cy="5" r="2"/></svg>') repeat;
+    background-size: 10px 10px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: grain 2s linear infinite;
+    z-index: 1;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.7);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// Tamil Button - Pink-Purple gradient
+.btn-ta {
+  @extend .language-button;
+  background: linear-gradient(135deg, #d6336c, #7b2ff7);
+
+  &.active {
+    box-shadow: 0 0 10px 2px #d6336c;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #b32457, #5a20b3);
+  }
+}
+
+// English Button - Blue-Cyan gradient
+.btn-en {
+  @extend .language-button;
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+
+  &.active {
+    box-shadow: 0 0 10px 2px #22d3ee;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #1aa9c7, #2563eb);
+  }
+}
+
+/* Animations */
+@keyframes fadeSlide {
   from {
     opacity: 0;
     transform: translateY(-10px);
@@ -185,19 +324,51 @@
   }
 }
 
-// Responsive adjustments
-@media (max-width: 640px) {
-  .header {
-    &__brand {
-      font-size: 1.25rem;
-    }
+@keyframes textFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
 
-    &__play {
-      padding: 0.5rem;
-    }
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 4px #facc15, 0 0 8px #facc15;
+  }
+  to {
+    text-shadow: 0 0 12px #facc15, 0 0 24px #facc15;
+  }
+}
 
-    &__right {
-      gap: 0.4rem;
-    }
+@keyframes slideDown {
+  from {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grain {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
   }
 }

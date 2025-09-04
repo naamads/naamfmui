@@ -2,6 +2,20 @@ import React from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import "../styles/Radioplayer.scss";
 
+// Translation data
+const translations = {
+  EN: {
+    nowPlaying: "Now Playing",
+    station: "Naam FM - Your Local Voice",
+    liveStream: "Live Radio Stream",
+  },
+  TN: {
+    nowPlaying: "இப்போதைக்கு ஒளிபரப்பு",
+    station: "நாம் FM - உங்கள் உள்ளூர் குரல்",
+    liveStream: "நேரடி ரேடியோ ஸ்ட்ரீம்",
+  },
+};
+
 const RadioPlayer = ({
   isPlaying,
   togglePlay,
@@ -10,8 +24,10 @@ const RadioPlayer = ({
   isMuted,
   toggleMute,
   audioRef,
-  streamUrl,
+  language = "EN", // default English
 }) => {
+  const t = translations[language] || translations.EN;
+
   const handleVolumeChange = (e) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
@@ -25,9 +41,9 @@ const RadioPlayer = ({
       <div className="container">
         <div className="player-container">
           <div className="now-playing">
-            <h3>Now Playing</h3>
-            <p>Naam FM - Your Local Voice</p>
-            <p>Live Radio Stream</p>
+            <h3>{t.nowPlaying}</h3>
+            <p>{t.station}</p>
+            <p>{t.liveStream}</p>
           </div>
 
           <div className="player-controls">

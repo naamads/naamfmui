@@ -3,14 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../styles/onaircrew.scss";
 import crewMembers from "../data/crew.json";
 
-const OnAirCrew = () => {
+const OnAirCrew = ({ language = "EN" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto slide every 3s
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 1000);
+    const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
@@ -28,7 +26,10 @@ const OnAirCrew = () => {
 
   return (
     <section className="onaircrew">
-      <h2 className="title">On-Air Crew</h2>
+      <h2 className="title">
+        {language === "EN" ? "On-Air Crew" : "ஒன்-ஏர் க்ரூ"}
+      </h2>
+
       <div className="carousel">
         <div
           className="carousel-track"
@@ -44,7 +45,9 @@ const OnAirCrew = () => {
               <div className="crew-image animate-shape">
                 <img src={crew.image} alt={crew.name} />
               </div>
-              <h3 className="crew-name">{crew.name}</h3>
+              <h3 className="crew-name">
+                {language === "EN" ? crew.name : crew.nameTN || crew.name}
+              </h3>
             </div>
           ))}
         </div>

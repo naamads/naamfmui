@@ -1,42 +1,55 @@
-// About.jsx
-import React from "react"
-import "../styles/about.scss"
-import aboutImg from "../assests/about.jpg"  
-import { FaMicrophoneAlt, FaMusic, FaHeart } from "react-icons/fa"  
+import React, { useRef, useEffect, useState } from "react";
+import "../styles/about.scss";
+import aboutImg from "/src/assests/about.jpg"; // ✅ Make sure your path is correct
+import { FaMicrophoneAlt, FaMusic, FaHeart } from "react-icons/fa";
+import translations from "../data/aboutTranslations.json"; // 🈳 i18n JSON
 
+const About = ({ language = "EN" }) => {
+  const t = translations[language];
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
 
-const About = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
-    <section className="about" id="about">
+    <section
+      ref={sectionRef}
+      className={`about ${inView ? "in-view" : ""}`}
+      id="about"
+    >
       <div className="about__container">
-        
-        {/* Left Side - Image */}
         <div className="about__image">
-          <img src={aboutImg} alt="About NaaM FM" />
+          <img src={aboutImg} alt={t.imgAlt} />
         </div>
 
-        {/* Right Side - Content */}
         <div className="about__content">
-          <h5 className="about__subtitle">About Us</h5>
+          <h5 className="about__subtitle">{t.subtitle}</h5>
           <h2 className="about__title">
-            <FaMicrophoneAlt className="icon" /> NaaM FM VIBE <FaMusic className="icon" />
+            <FaMicrophoneAlt className="icon vibe-icon" /> {t.title}{" "}
+            <FaMusic className="icon vibe-icon" />
           </h2>
           <p className="about__text">
-            Welcome to <strong>NaaM FM</strong> – your voice, your music, 
-            your station! <FaMicrophoneAlt /><br /><br />
-            We’re here to bring you the best of local vibes, latest hits, 
-            and soulful shows. From trending beats to timeless classics, 
-            we connect hearts through music and stories that matter.  
-            Join us and feel the <em>NaaM FM vibe</em> – 
-            because music is not just heard, it’s felt. <FaHeart className="icon heart" />
+            {t.text} <FaHeart className="icon heart vibe-icon" />
           </p>
           <a href="#contact" className="about__btn">
-            <FaMicrophoneAlt /> Connect With Us
+            <FaMicrophoneAlt className="vibe-icon" /> {t.button}
           </a>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

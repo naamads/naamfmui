@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop",
+    "title": "Welcome to",
+    "subtitle": "Your Voice, Your Music, Your Station"
+  },
+  {
+    "id": 2,
+    "image": "/images/microphone.jpg",
+    "title": "Local News",
+    "subtitle": "Stay Updated"
+  },
+  {
+    "id": 3,
+    "image": "/images/Naam.jpg",
+    "title": "NaaM Break Time",
+    "subtitle": "Connecting Hearts Through Music"
+  },
+  {
+    "id": 4,
+    "image": "/images/vibes.jpg",
+    "title": "",
+    "subtitle": ""
+  }
+]

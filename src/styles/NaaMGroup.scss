@@ -1,0 +1,320 @@
+/* NaaMGroup.scss */
+
+/* Container */
+.naamgroup-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 150px; /* ⬅️ increased top spacing */
+  color: #fff;
+  font-family: "Inter", sans-serif;
+
+  /* Multicolor gradient + grain overlay */
+  background: linear-gradient(
+    135deg,
+    #1e293b,
+    #0f172a,
+    #3b82f6,
+    #9333ea,
+    #ec4899,
+    #f59e0b
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+
+  /* Grain overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 3D Slider */
+.slider-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+.slider-3d-inner {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  transform-style: preserve-3d;
+}
+
+.rotate-infinite {
+  animation: rotateAnimation 20s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Slide Card */
+.slide-3d {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  backface-visibility: hidden;
+  transition: all 0.6s ease;
+
+  &:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Slide Image */
+.slide-img {
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+
+  .img-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* Slide Content */
+.slide-content {
+  height: 40%;
+  padding: 1rem;
+  background: linear-gradient(to top, #f9fafb, #ffffff);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .category-tag {
+    display: inline-block;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .slide-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #0f172a;
+  }
+
+  .slide-subtitle {
+    font-size: 0.9rem;
+    color: #334155;
+  }
+
+  .action-btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.5s, transform 0.2s;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          #3b82f6,
+          #9333ea,
+          #ec4899,
+          #f59e0b,
+          #10b981
+        );
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* Central Logo */
+.central-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: pulseAnimation 3s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+    font-size: 1rem;
+  }
+}
+
+@keyframes pulseAnimation {
+  0%, 100% {
+    transform: scale(1) translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6),
+                0 0 40px rgba(236, 72, 153, 0.6);
+  }
+  50% {
+    transform: scale(1.05) translate(-50%, -50%);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.7),
+                0 0 60px rgba(236, 72, 153, 0.7);
+  }
+}
+
+/* Controls */
+.controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 20;
+
+  .control-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.5s, transform 0.2s;
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #9333ea,
+        #ec4899,
+        #f59e0b,
+        #10b981
+      );
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Instructions */
+.instructions {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  z-index: 20;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .naamgroup-container {
+    margin-top: 250px; /* smaller shift on tablets */
+  }
+
+  .slide-3d {
+    width: 240px;
+    height: 320px;
+  }
+
+  .slider-3d-inner {
+    width: 240px;
+    height: 320px;
+  }
+
+  .central-logo {
+    width: 100px;
+    height: 100px;
+    font-size: 0.75rem;
+  }
+
+  .controls .control-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .naamgroup-container {
+    margin-top: 150px; /* smaller shift on mobile */
+  }
+
+  .slide-3d {
+    width: 200px;
+    height: 280px;
+  }
+
+  .slider-3d-inner {
+    width: 200px;
+    height: 280px;
+  }
+
+  .instructions {
+    font-size: 0.7rem;
+  }
+
+  .controls .control-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+}

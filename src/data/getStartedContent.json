@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Next-Gen Infrastructure",
+    "subtitle": "Cloud Solutions",
+    "description": "Revolutionize your business with our cutting-edge cloud infrastructure. Experience unparalleled performance, scalability, and security that adapts to your growing needs.",
+    "image": "/src/assests/tech-workspace-1.jpg",
+    "imageAlt": "Futuristic technology workspace"
+  },
+  {
+    "id": 2,
+    "title": "Advanced Data Management",
+    "subtitle": "Intelligent Systems",
+    "description": "Harness the power of intelligent data management systems. Our advanced analytics and automated processes transform raw data into actionable business insights.",
+    "image": "/src/assests/data-center-2.jpg",
+    "imageAlt": "Advanced data center infrastructure"
+  },
+  {
+    "id": 3,
+    "title": "AI-Powered Solutions",
+    "subtitle": "Machine Learning",
+    "description": "Leverage artificial intelligence to automate complex workflows and enhance decision-making. Our AI solutions adapt and learn to optimize your business operations.",
+    "image": "/src/assests/ai-neural-3.jpg",
+    "imageAlt": "AI neural network visualization"
+  },
+  {
+    "id": 4,
+    "title": "Seamless Integration",
+    "subtitle": "Digital Transformation",
+    "description": "Transform your digital landscape with seamless integration solutions. Connect all your systems for unified, efficient, and future-ready operations.",
+    "image": "/src/assests/cloud-tech-4.jpg",
+    "imageAlt": "Cloud computing infrastructure"
+  }
+]

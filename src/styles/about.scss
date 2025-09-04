@@ -1,4 +1,3 @@
-/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Satisfy&display=swap");
 
 .about {
@@ -34,6 +33,7 @@
       object-fit: cover;
       box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease;
+      animation: vibeDanceFast 1.8s ease-in-out infinite;
 
       &:hover {
         transform: scale(1.05);
@@ -60,12 +60,11 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       line-height: 1.2;
-      font-family: "Montserrat", sans-serif;
 
       .icon {
-        color: #ff00c8;
         margin: 0 8px;
         vertical-align: middle;
+        color: #ff00c8;
       }
     }
 
@@ -76,12 +75,11 @@
       color: #ddd;
       font-weight: 400;
       max-width: 550px;
-      font-family: "Montserrat", sans-serif;
 
       .icon {
-        color: #ff00c8;
         margin: 0 4px;
         vertical-align: middle;
+        color: #ff00c8;
       }
 
       .heart {
@@ -102,7 +100,6 @@
       text-decoration: none;
       letter-spacing: 0.5px;
       transition: all 0.3s ease;
-      font-family: "Montserrat", sans-serif;
 
       svg {
         font-size: 1.2rem;
@@ -116,7 +113,7 @@
     }
   }
 
-  /* 📱 Mobile Responsive */
+  /* 🌐 Responsive */
   @media (max-width: 768px) {
     &__title {
       font-size: 2.2rem;
@@ -131,9 +128,14 @@
       width: 100%;
       justify-content: center;
     }
+
+    &__image {
+      img {
+        max-width: 300px;
+      }
+    }
   }
 
-  /* 📱 Small Screens */
   @media (max-width: 480px) {
     padding: 3rem 1rem;
 
@@ -144,5 +146,69 @@
     &__subtitle {
       font-size: 1.3rem;
     }
+
+    &__image {
+      img {
+        max-width: 260px;
+      }
+    }
+  }
+}
+
+/* 💃 Image Animation */
+@keyframes vibeDanceFast {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  10% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  20% {
+    transform: translateY(3px) rotate(2deg);
+  }
+  30% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  40% {
+    transform: translateY(2px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+  60% {
+    transform: translateY(4px) rotate(1deg);
+  }
+  70% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  80% {
+    transform: translateY(3px) rotate(2deg);
+  }
+  90% {
+    transform: translateY(-1px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* 🎶 Icon Bounce Animation */
+.vibe-icon {
+  animation: iconBounce 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+  75% {
+    transform: translateY(-1px);
   }
 }
