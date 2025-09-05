@@ -80,9 +80,10 @@ const Header = ({ isPlaying, togglePlay, language = "EN", setLanguage }) => {
             <div className="header__nav-content">
               <Link to="/" className="header__nav-link">{t.home}</Link>
               <Link to="/naam-group" className="header__nav-link">{t.groupMenu}</Link>
+              <Link to="/naam-rj" className="header__nav-link">{t.radio}</Link>
               <Link to="/aboutUs" className="header__nav-link">{t.about}</Link>
               <Link to="/contact" className="header__nav-link">{t.contact}</Link>
-              <Link to="/it-care" className="header__nav-link header__nav-link--special">{t.menuGroup}</Link>
+              <Link to="/it-care" className="header_nav-link header_nav-link--special">{t.menuGroup}</Link>
             </div>
           </div>
         </nav>

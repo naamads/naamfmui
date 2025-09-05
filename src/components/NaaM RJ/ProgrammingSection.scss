@@ -1,0 +1,284 @@
+.programming-section {
+  position: relative;
+  padding: 8rem 0;
+  font-family: "monospace", monospace;
+
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #0a0a0a, #111, #0a0a0a);
+    z-index: 0;
+  }
+
+  .floating-icon {
+    position: absolute;
+    animation: float 4s infinite ease-in-out alternate; // reduced duration for smoother effect
+
+    &.mic {
+      top: 5rem;
+      right: 5rem;
+      color: #ff3fa4;
+      opacity: 0.3;
+    }
+    &.radio {
+      bottom: 8rem;
+      left: 4rem;
+      color: #39ff14;
+      opacity: 0.2;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+
+      .neon-gradient {
+        background: linear-gradient(90deg, #00f0ff, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    p {
+      color: #bbb;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .program-block {
+    margin-bottom: 8rem;
+
+    .grid-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+
+      @media (min-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &.reverse-layout .grid-block {
+      @media (min-width: 992px) {
+        direction: rtl;
+
+        .program-content {
+          direction: ltr;
+        }
+      }
+    }
+
+    .rj-card {
+      .card {
+        background: linear-gradient(to bottom right, #1a1a1a, #222);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        border: 1px solid transparent;
+        transition: 0.3s;
+
+        &.neon-blue {
+          border-color: rgba(0, 240, 255, 0.3);
+        }
+        &.neon-purple {
+          border-color: rgba(168, 85, 247, 0.3);
+        }
+        &.neon-pink {
+          border-color: rgba(255, 63, 164, 0.3);
+        }
+
+        &:hover {
+          transform: translateY(-3px); // reduced hover lift
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .profile {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+
+          img {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .live-indicator {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #39ff14;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .dot {
+              width: 0.6rem;
+              height: 0.6rem;
+              background: #fff;
+              border-radius: 50%;
+              animation: pulse 1.5s infinite;
+            }
+          }
+        }
+
+        h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #fff;
+        }
+
+        .show {
+          font-size: 1.1rem;
+          font-weight: 500;
+
+          &.blue { color: #00f0ff; }
+          &.purple { color: #a855f7; }
+          &.pink { color: #ff3fa4; }
+        }
+      }
+
+      .info-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        .badge {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: #222;
+          border-radius: 999px;
+          padding: 0.5rem 1rem;
+          color: #bbb;
+
+          .icon {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+
+      .specialty {
+        background: rgba(34, 34, 34, 0.6);
+        border-radius: 1rem;
+        padding: 1rem;
+
+        .label {
+          font-size: 0.85rem;
+          color: #aaa;
+          margin-bottom: 0.25rem;
+        }
+
+        .text-blue { color: #00f0ff; }
+        .text-purple { color: #a855f7; }
+        .text-pink { color: #ff3fa4; }
+      }
+    }
+
+    .program-content {
+      h4 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: #ccc;
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        button {
+          position: relative;
+          overflow: hidden;
+          padding: 0.75rem 2rem;
+          border-radius: 999px;
+          font-weight: 600;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          // Sparkle effect
+          &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-20deg);
+            transition: 0.5s;
+          }
+
+          &:hover:after {
+            left: 100%;
+          }
+        }
+
+        .btn-gradient {
+          background: linear-gradient(90deg, #00f0ff, #a855f7);
+          color: #0d0d0d;
+        }
+        .btn-outline-blue {
+          border: 1px solid #00f0ff;
+          color: #00f0ff;
+        }
+        .btn-outline-purple {
+          border: 1px solid #a855f7;
+          color: #a855f7;
+        }
+        .btn-outline-pink {
+          border: 1px solid #ff3fa4;
+          color: #ff3fa4;
+        }
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); } // reduced float height
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .program-block .grid-block {
+    grid-template-columns: 1fr;
+  }
+}

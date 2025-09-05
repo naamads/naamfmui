@@ -1,0 +1,112 @@
+.interactive-experience {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: -70px; // added top margin
+  background: #0d0d0d;
+  color: white;
+  font-family: "monospace", monospace;
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff5efc, #7dd3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .card {
+    background: #111;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-family: "monospace", monospace;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(255, 95, 252, 0.5), 0 8px 15px rgba(125, 211, 252, 0.3);
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #00f0ff;
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+      display: inline-block;
+      animation: dance 1.5s infinite ease-in-out alternate;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #aaa;
+    }
+  }
+}
+
+/* Icon dance animation */
+@keyframes dance {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-2deg); }
+  50% { transform: translateY(0) rotate(2deg); }
+  75% { transform: translateY(-2px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .interactive-experience {
+    padding: 3rem 1rem;
+
+    .title {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      gap: 1.5rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 260px;
+      padding: 1.5rem;
+
+      .icon {
+        font-size: 2.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

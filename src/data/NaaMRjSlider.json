@@ -1,0 +1,33 @@
+{
+  "title": {
+    "main": "NaaM",
+    "sub": "RJ Programming",
+    "tagline": "Experience the future of radio broadcasting with cinematic sound design"
+  },
+  "frames": [
+    {
+      "id": 1,
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Sonic Waves",
+      "description": "Abstract sound visualization"
+    },
+    {
+      "id": 2,
+      "image": "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Neon Dreams",
+      "description": "Futuristic radio studio"
+    },
+    {
+      "id": 3,
+      "image": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Digital Harmony",
+      "description": "Music meets technology"
+    },
+    {
+      "id": 4,
+      "image": "https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Audio Spectrum",
+      "description": "Visual sound experience"
+    }
+  ]
+}

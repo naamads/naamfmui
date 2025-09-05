@@ -3,14 +3,14 @@
   color: #fff;
   text-align: center;
 
-  // Gradient overlay background
   background:
     linear-gradient(135deg, rgba(58, 12, 163, 0.7), rgba(181, 23, 158, 0.7)),
     url('/images/radioplayer.jpg') no-repeat center center / cover;
 
   .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .player-container {
@@ -18,22 +18,107 @@
     border-radius: 1.5rem;
     padding: 2rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
 
+  .naam-sticker {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: dance 3s ease-in-out infinite alternate;
+
+    .main-img {
+      width: 240px;
+      height: 240px;
+      object-fit: contain;
+      border-radius: 50%;
+      padding: 0.3rem;
+      animation: bounce 2s infinite ease-in-out;
+      box-shadow: 0 0 12px #ff66cc88;
+    }
+
+    .rolling-img-wrapper {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 1rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+
+      .rolling-img {
+        height: 200%;
+        animation: scrollImage 10s linear infinite;
+      }
+    }
+
+    .music-icon {
+      position: absolute;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      background: rgba(255, 102, 204, 0.15);
+      border-radius: 50%;
+      padding: 4px 6px;
+      box-shadow: 0 0 5px #ff66cc88;
+      animation: floatMusic 5s linear infinite;
+
+      &.top-left {
+        top: -14px;
+        left: -14px;
+        animation-delay: 0s;
+      }
+
+      &.top-right {
+        top: -14px;
+        right: -14px;
+        animation-delay: 1s;
+      }
+
+      &.bottom-left {
+        bottom: -14px;
+        left: -14px;
+        animation-delay: 2s;
+      }
+
+      &.bottom-right {
+        bottom: -14px;
+        right: -14px;
+        animation-delay: 3s;
+      }
+
+      .naam-text {
+        font-weight: bold;
+        background: linear-gradient(
+          90deg,
+          #ff0000,
+          #ff9900,
+          #33cc33,
+          #3399ff,
+          #9933ff,
+          #ff3399,
+          #ff0000
+        );
+        background-size: 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbowText 6s linear infinite;
+      }
+    }
+  }
+
+  .player-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-  }
-
-  .now-playing-image {
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 1rem;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      margin-bottom: 0.8rem;
-    }
+    opacity: 0;
+    animation: slideInText 1.2s ease-out 0.5s forwards;
   }
 
   .now-playing {
@@ -42,6 +127,7 @@
       margin-bottom: 0.3rem;
       color: #ff66cc;
     }
+
     p {
       margin: 0.2rem 0;
       opacity: 0.9;
@@ -92,5 +178,88 @@
       cursor: pointer;
       accent-color: #ff66cc;
     }
+  }
+}
+
+/* === Animations === */
+
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes scrollImage {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes floatMusic {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes dance {
+  0% {
+    transform: rotate(-2deg) scale(1);
+  }
+  100% {
+    transform: rotate(2deg) scale(1.05);
+  }
+}
+
+@keyframes rainbowText {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+/* === Responsive === */
+
+@media (max-width: 768px) {
+  .player-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .naam-sticker {
+    margin-bottom: 1rem;
+
+    .main-img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  .player-content {
+    width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
@@ -10,6 +10,8 @@ import HeroSlider from "./components/HeroSlider";
 import About from "./components/About";
 import RadioPlayer from "./components/RadioPlayer";
 import OnAirCrew from "./components/OnAirCrew";
+import NaamFMSlider from "./components/NaaM RJ/NaamFMSlider";
+import ProgrammingSection from "./components/NaaM RJ/ProgrammingSection";
 
 // Pages
 import AboutUs from "./pages/AboutUs";
@@ -20,28 +22,24 @@ import GetStarted from "./NaaMGroupPages/GetStarted";
 import "./styles/main.scss";
 import "./styles/hero-slider.scss";
 import "./styles/custom-cursor.css";
+import MicrophoneSection from "./components/NaaM RJ/MicrophoneSection";
 
 function App() {
-  // 🦋 Butterfly toggle
   const [showButterflies, setShowButterflies] = useState(true);
 
-  // 🎵 Radio state
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
-  // 🌐 Language state
   const [language, setLanguage] = useState("EN"); // EN or TN
 
   const streamUrl = "https://centova.aarenworld.com/proxy/894tamilfm/stream";
 
-  // Update audio volume
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = isMuted ? 0 : volume;
   }, [volume, isMuted]);
 
-  // Play/pause toggle
   const togglePlay = async () => {
     if (!audioRef.current) return;
     try {
@@ -57,7 +55,6 @@ function App() {
     }
   };
 
-  // Mute/unmute toggle
   const toggleMute = () => {
     setIsMuted((prev) => {
       const newMute = !prev;
@@ -84,6 +81,7 @@ function App() {
           setLanguage={setLanguage}
         />
 
+        {/* 📰 Flash News */}
         <FlashNewsTicker
           title="Latest News"
           items={[
@@ -124,11 +122,32 @@ function App() {
             {/* About Us Page */}
             <Route path="/about-us" element={<AboutUs language={language} />} />
 
-            {/* NaaM Group Page */}
-            <Route path="/naam-group" element={<NaaMGroup language={language} />} />
+            {/* Naam RJ Page */}
+            <Route
+              path="/naam-rj"
+              element={
+                <>
+                  <NaamFMSlider language={language} />
+                  <ProgrammingSection />
+                  <MicrophoneSection/>
+                </>
+              }
+            />
+
+            {/* Redirect old paths */}
+            <Route path="/naam-fm" element={<Navigate to="/naam-rj" replace />} />
+
+            {/* NaaM Group Page (with section1 + body) */}
+            <Route
+              path="/naam-group"
+              element={<NaaMGroup language={language} />}
+            />
 
             {/* Get Started Page */}
-            <Route path="/naam-group/get-started" element={<GetStarted language={language} />} />
+            <Route
+              path="/naam-group/get-started"
+              element={<GetStarted language={language} />}
+            />
           </Routes>
         </main>
 

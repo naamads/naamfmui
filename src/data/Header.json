@@ -6,7 +6,8 @@
     "contact": "Contact Us",
     "phone": "+91 98765 43210",
     "group": "NaaM IT Care",
-    "menuGroup": "NaaM IT Care"
+    "menuGroup": "NaaM IT Care",
+    "radio": "NaaM RJ"
   },
   "TN": {
     "home": "முகப்பு",
@@ -15,6 +16,7 @@
     "contact": "தொடர்பு கொள்ள",
     "phone": "+91 98765 43210",
     "group": "நாம் குழுமம் வழங்கியது",
-    "menuGroup": "நாம் ஐடி கேரு"
+    "menuGroup": "நாம் ஐடி கேரு",
+    "radio": "நாம் RJ"
   }
 }

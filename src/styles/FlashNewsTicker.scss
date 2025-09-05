@@ -1,4 +1,7 @@
 .flash-news-ticker {
+    position: sticky; // ✅ stays under header
+  top: 110px; // adjust depending on your header height
+  z-index: 999; // stays above content
   display: flex;
   align-items: center;
   width: 100%;
@@ -7,7 +10,6 @@
   background: #000; // black background
   color: white;
   --play-state: running;
-  margin-top: 150px;
   padding: 0.4rem;
 
   // Neon card glow
@@ -27,7 +29,6 @@
     }
   }
 
-  // Glow animation for button
   @keyframes glowPulse {
     0% {
       box-shadow: 0 0 5px #00f, 0 0 10px #0ff, 0 0 20px #f0f;
@@ -82,33 +83,6 @@
     min-width: 0;
     padding: 0.5rem 0.75rem 0.5rem 0;
 
-    .slide-container {
-      position: relative;
-      height: 2rem;
-      overflow: hidden;
-
-      .slide-item {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-
-        a,
-        span {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          color: white;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-
     .marquee {
       position: relative;
       width: 100%;
@@ -121,6 +95,11 @@
         will-change: transform;
         animation: ticker-marquee 20s linear infinite;
         animation-play-state: var(--play-state);
+      }
+
+      // ✅ Pause marquee on hover
+      &:hover .marquee-inner {
+        animation-play-state: paused;
       }
 
       .marquee-group {
@@ -142,12 +121,19 @@
     }
   }
 
-  // Responsive tweaks
+  // ✅ Responsive tweaks
   @media (max-width: 768px) {
-    margin-top: 150px;
+    margin-top: 8rem; // smaller gap on tablets
+    flex-direction: column; // stack heading + content
+    align-items: flex-start;
+
+    .divider {
+      display: none; // hide divider on small screens
+    }
 
     .heading {
-      font-size: 0.75rem;
+      width: 100%;
+      text-align: center;
       padding: 0.4rem 0.8rem;
 
       .latest-news-btn {
@@ -155,19 +141,32 @@
         padding: 0.4rem 0.9rem;
       }
     }
+
+    .content {
+      width: 100%;
+      padding: 0.25rem 0;
+    }
   }
 
   @media (max-width: 480px) {
-    margin-top: 180px;
+    margin-top: 11rem; // consistent gap on mobile
+    flex-direction: column;
+    align-items: flex-start;
 
     .heading {
       font-size: 0.65rem;
+      text-align: center;
       padding: 0.3rem 0.6rem;
 
       .latest-news-btn {
         font-size: 0.65rem;
         padding: 0.3rem 0.7rem;
       }
+    }
+
+    .content {
+      width: 100%;
+      padding: 0.2rem 0;
     }
   }
 }
