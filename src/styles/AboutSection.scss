@@ -1,0 +1,92 @@
+.about-section {
+  padding: 4rem 1rem;
+
+  // Animated multi-color gradient background
+  background: linear-gradient(270deg, #ff6fd8, #3813c2, #04b4e0, #ff6fd8);
+  background-size: 800% 800%;
+  animation: backgroundShift 15s ease infinite;
+
+  // Monospace font family
+  font-family: 'Courier New', Courier, monospace;
+  color: #f9fafb; // light text for contrast
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  // Rolling text animation on title
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    &.rolling-text {
+      display: inline-block;
+      animation: rollingText 12s linear infinite;
+    }
+  }
+
+  .about-description {
+    font-size: 1.125rem;
+    color: #e0e7ffcc; // slightly transparent white
+    margin-bottom: 2rem;
+  }
+
+  .about-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin: 0.5rem 1rem;
+      color: #d1d5db;
+
+      .icon {
+        color: #10b981;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+/* Animated background gradient shift */
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Rolling text animation (horizontal scroll from right to left) */
+@keyframes rollingText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

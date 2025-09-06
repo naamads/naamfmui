@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../styles/Header.scss";
-import translations from "/src/data/Header.json"; // Import JSON
+import translations from "/src/data/Header.json";
 
 const Header = ({ isPlaying, togglePlay, language = "EN", setLanguage }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,24 +27,40 @@ const Header = ({ isPlaying, togglePlay, language = "EN", setLanguage }) => {
             <span className="header__group">{t.group}</span>
           </div>
 
-          <button className="header__play" onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
+          <button
+            className="header__play"
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
             {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
 
           <div className="header__right">
             <div className="header__contact">
-              <Phone size={18} />
-              <span>{t.phone}</span>
+              {/* <Phone size={18} /> */}
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="whatsapp-icon" aria-label="WhatsApp">
+                <Phone size={18} />
+              </a>
+              <span>+91 98765 43210</span>
+              {/* WhatsApp icon with green style */}
+              
             </div>
 
             <div className="header__socials">
-              <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
-              <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="#" aria-label="YouTube"><Youtube size={20} /></a>
+              <a href="#" aria-label="Facebook">
+                <Facebook size={20} />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <Instagram size={20} />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <Twitter size={20} />
+              </a>
+              <a href="#" aria-label="YouTube">
+                <Youtube size={20} />
+              </a>
             </div>
 
-            {/* Language Toggle Buttons */}
             <div className="header__lang-toggle">
               <button
                 className={`btn-ta ${language === "TN" ? "active" : ""}`}
@@ -78,12 +94,27 @@ const Header = ({ isPlaying, togglePlay, language = "EN", setLanguage }) => {
         <nav className="header__nav" role="navigation" aria-label="Main menu">
           <div className="header__nav-container">
             <div className="header__nav-content">
-              <Link to="/" className="header__nav-link">{t.home}</Link>
-              <Link to="/naam-group" className="header__nav-link">{t.groupMenu}</Link>
-              <Link to="/naam-rj" className="header__nav-link">{t.radio}</Link>
-              <Link to="/aboutUs" className="header__nav-link">{t.about}</Link>
-              <Link to="/contact" className="header__nav-link">{t.contact}</Link>
-              <Link to="/it-care" className="header_nav-link header_nav-link--special">{t.menuGroup}</Link>
+              <Link to="/" className="header__nav-link">
+                {t.home}
+              </Link>
+              <Link to="/naam-group" className="header__nav-link">
+                {t.groupMenu}
+              </Link>
+              <Link to="/naam-rj" className="header__nav-link">
+                {t.radio}
+              </Link>
+              <Link to="/aboutUs" className="header__nav-link">
+                {t.about}
+              </Link>
+              <Link to="/contact" className="header__nav-link">
+                {t.contact}
+              </Link>
+              <Link
+                to="/it-care"
+                className="header__nav-link header__nav-link--special"
+              >
+                {t.menuGroup}
+              </Link>
             </div>
           </div>
         </nav>

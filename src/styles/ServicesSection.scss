@@ -1,0 +1,218 @@
+.services-section {
+  padding: 4rem 1rem;
+  background: #0f172a; // dark blue background
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Amazing Text Animation for section title
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(270deg, #FF6FD8, #3813C2, #04B4E0, #FF6FD8);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+  }
+
+  // Grid Layout responsive
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+  }
+
+  // Card styling and animation
+  .card {
+    background: #1e293b;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+      transform: translateY(-8px);
+    }
+
+    .card-content {
+      padding: 2rem;
+
+      .icon-container {
+        font-size: 3.5rem;
+        color: #ff6fd8;
+        margin-bottom: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .card-description {
+        font-size: 1rem;
+        color: #cbd5e1;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        min-height: 3.25rem; // keep consistent card height
+      }
+
+      .features {
+        margin-bottom: 1.75rem;
+
+        .feature {
+          display: flex;
+          align-items: center;
+          font-size: 0.95rem;
+          color: #a1a1aa;
+          margin-bottom: 0.6rem;
+
+          .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff6fd8;
+            margin-right: 10px;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      // Button with glowing + sparkle effect
+      .learn-more-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0.65rem 1.8rem;
+        border: 2px solid #ff6fd8;
+        border-radius: 9999px;
+        color: #ff6fd8;
+        font-weight: 600;
+        font-size: 1rem;
+        background: transparent;
+        cursor: pointer;
+        overflow: visible;
+        transition: all 0.3s ease;
+
+        svg {
+          stroke-width: 2.2;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          color: #fff;
+          background: #ff6fd8;
+          box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 30px rgba(255, 0, 255, 0.5);
+
+          svg {
+            transform: translateX(5px);
+          }
+
+          // Sparkle container visible on hover
+          &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            pointer-events: none;
+            background: transparent;
+            animation: sparkle 2.5s linear infinite;
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 50%, transparent 70%);
+            z-index: 1;
+          }
+        }
+
+        &:active {
+          transform: scale(0.95);
+          box-shadow: 0 0 20px #ff6fd8, 0 0 40px #ff6fd8 inset;
+        }
+      }
+    }
+  }
+}
+
+/* Text Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Card Swipe In Animation */
+@keyframes swipeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-swipe-in {
+  animation-name: swipeIn;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0;
+}
+
+/* Sparkle animation */
+
+@keyframes sparkle {
+  0%, 100% {
+    background-image:
+      radial-gradient(circle 2px at 10% 20%, #fff, transparent 80%),
+      radial-gradient(circle 2.5px at 30% 50%, #fff, transparent 80%),
+      radial-gradient(circle 1.5px at 50% 70%, #fff, transparent 80%),
+      radial-gradient(circle 2px at 70% 30%, #fff, transparent 80%),
+      radial-gradient(circle 2px at 90% 80%, #fff, transparent 80%);
+  }
+  50% {
+    background-image:
+      radial-gradient(circle 2.5px at 15% 25%, #fff, transparent 80%),
+      radial-gradient(circle 2px at 35% 55%, #fff, transparent 80%),
+      radial-gradient(circle 1.8px at 55% 75%, #fff, transparent 80%),
+      radial-gradient(circle 2.3px at 75% 35%, #fff, transparent 80%),
+      radial-gradient(circle 2.5px at 95% 85%, #fff, transparent 80%);
+  }
+}

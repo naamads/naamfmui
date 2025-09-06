@@ -1,0 +1,66 @@
+{
+  "EN": [
+    {
+      "icon": "Monitor",
+      "title": "NaaM IT Care",
+      "description": "Comprehensive IT solutions including network management, cybersecurity, cloud services, and 24/7 technical support for businesses of all sizes.",
+      "features": ["Network Infrastructure", "Cybersecurity", "Cloud Solutions", "24/7 Support"]
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "NaaM Digital Marketing",
+      "description": "Strategic digital marketing services to boost your online presence through SEO, social media marketing, content creation, and analytics.",
+      "features": ["SEO Optimization", "Social Media", "Content Strategy", "Analytics"]
+    },
+    {
+      "icon": "Camera",
+      "title": "NaaM Photoshop",
+      "description": "Professional photography and advanced photo editing services for corporate events, products, portraits, and marketing materials.",
+      "features": ["Photography", "Photo Editing", "Retouching", "Design Services"]
+    },
+    {
+      "icon": "Building",
+      "title": "NaaM FM",
+      "description": "Complete facility management solutions including maintenance, security, cleaning, and operational efficiency for commercial properties.",
+      "features": ["Maintenance", "Security", "Cleaning", "Operations"]
+    },
+    {
+      "icon": "Radio",
+      "title": "NaaM RJ",
+      "description": "Professional radio and broadcasting services including voice-over work, audio production, and communication solutions.",
+      "features": ["Voice Over", "Audio Production", "Broadcasting", "Communication"]
+    }
+  ],
+  "TN": [
+    {
+      "icon": "Monitor",
+      "title": "நம் IT கேர்",
+      "description": "நிறுவனங்களுக்கு 24/7 நெட்வொர்க் மேலாண்மை, சைபர் பாதுகாப்பு, கிளவுட் சேவைகள் மற்றும் தொழில்நுட்ப ஆதரவுடன் விரிவான IT தீர்வுகள்.",
+      "features": ["நெட்வொர்க் அடித்தளம்", "சைபர் பாதுகாப்பு", "கிளவுட் தீர்வுகள்", "24/7 ஆதரவு"]
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "நம் டிஜிட்டல் மார்க்கெட்டிங்",
+      "description": "SEO, சமூக ஊடகம், உள்ளடக்க உருவாக்கம் மற்றும் பகுப்பாய்வுகளின் மூலம் உங்கள் ஆன்லைன் முன்னிலையில் முன்னேற்றம்.",
+      "features": ["SEO மேம்பாடு", "சமூக ஊடகம்", "உள்ளடக்கத் திட்டமிடல்", "பகுப்பாய்வு"]
+    },
+    {
+      "icon": "Camera",
+      "title": "நம் புகைப்படத் துறை",
+      "description": "நிறுவன நிகழ்வுகள், பொருட்கள், போட்டோகிராஃபி மற்றும் விளம்பரங்கள் தொடர்பான தொழில்முறை புகைப்படங்கள் மற்றும் எடிடிங் சேவைகள்.",
+      "features": ["புகைப்படம்", "புகைப்பட திருத்தல்", "மீண்டும் தொடுதல்", "வடிவமைப்பு சேவைகள்"]
+    },
+    {
+      "icon": "Building",
+      "title": "நம் FM",
+      "description": "வணிக சொத்துகளுக்கான பராமரிப்பு, பாதுகாப்பு, சுத்தம் மற்றும் செயல்பாட்டு திறன் உள்ளிட்ட முழுமையான வசதி மேலாண்மை சேவைகள்.",
+      "features": ["பராமரிப்பு", "பாதுகாப்பு", "சுத்தம்", "செயல்பாடு"]
+    },
+    {
+      "icon": "Radio",
+      "title": "நம் RJ",
+      "description": "குரல் ஓவர், ஆடியோ தயாரிப்பு மற்றும் தொடர்பு தீர்வுகளைக் கொண்ட தொழில்முறை ரேடியோ மற்றும் ஒளிபரப்பு சேவைகள்.",
+      "features": ["குரல் ஓவர்", "ஆடியோ தயாரிப்பு", "ஒளிபரப்பு", "தொடர்பு"]
+    }
+  ]
+}

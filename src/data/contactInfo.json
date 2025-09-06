@@ -1,0 +1,46 @@
+[
+  {
+    "icon": "MapPin",
+    "title": {
+      "EN": "Visit Us",
+      "TN": "எங்களை பார்க்கவும்"
+    },
+    "content": {
+      "EN": "123 Business District, Corporate Tower, City 12345",
+      "TN": "123 வணிக மாவட்டம், கார்ப்பரேட் கோபுரம், நகரம் 12345"
+    }
+  },
+  {
+    "icon": "Phone",
+    "title": {
+      "EN": "Call Us",
+      "TN": "எங்களை அழைக்கவும்"
+    },
+    "content": {
+      "EN": "+1 (555) 123-4567",
+      "TN": "+1 (555) 123-4567"
+    }
+  },
+  {
+    "icon": "Mail",
+    "title": {
+      "EN": "Email Us",
+      "TN": "மின்னஞ்சல் அனுப்பு"
+    },
+    "content": {
+      "EN": "contact@naamgroup.com",
+      "TN": "contact@naamgroup.com"
+    }
+  },
+  {
+    "icon": "Clock",
+    "title": {
+      "EN": "Business Hours",
+      "TN": "வணிக நேரம்"
+    },
+    "content": {
+      "EN": "Mon - Fri: 9:00 AM - 6:00 PM",
+      "TN": "திங்கள் - வெள்ளி: காலை 9:00 - மாலை 6:00"
+    }
+  }
+]

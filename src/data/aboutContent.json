@@ -1,0 +1,24 @@
+{
+  "EN": {
+    "title": "About Our Station",
+    "description": "We are a community-driven radio station bringing you the latest music, stories, and local news. Our mission is to connect, entertain, and inform.",
+    "features": [
+      "24/7 Live Streaming",
+      "Local Talent Showcase",
+      "Community Events Coverage",
+      "Multi-Language Programming",
+      "Interactive Call-ins"
+    ]
+  },
+  "TN": {
+    "title": "எங்கள் ஸ்டேஷன் பற்றி",
+    "description": "நாங்கள் சமுதாயத்தின் ஆதரவுடன் இயங்கும் ரேடியோ ஸ்டேஷன். புதிய இசைகள், கதைகள் மற்றும் உள்ளூர் செய்திகள் உங்களுக்காக வழங்கப்படுகின்றன. எங்கள் நோக்கம்: இணைக்க, பொழுதுபோக்கு செய்ய மற்றும் தகவல் வழங்குதல்.",
+    "features": [
+      "முழு 24/7 நேரடி ஒளிபரப்பு",
+      "உள்ளூர் திறமைகள் காட்சிப்படுத்தல்",
+      "சமூக நிகழ்வுகள் செய்திகள்",
+      "பல்வேறு மொழி நிகழ்ச்சிகள்",
+      "இணைய அழைப்புகள்"
+    ]
+  }
+}

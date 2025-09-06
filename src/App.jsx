@@ -1,5 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
@@ -13,11 +18,17 @@ import OnAirCrew from "./components/OnAirCrew";
 import NaamFMSlider from "./components/NaaM RJ/NaamFMSlider";
 import ProgrammingSection from "./components/NaaM RJ/ProgrammingSection";
 import MicrophoneSection from "./components/NaaM RJ/MicrophoneSection";
+import ServicesSection from "./components/NaaMGroup/ServicesSection";
+import AboutSection from "./components/NaaMGroup/AboutSection";
+import ContactSection from "./components/NaaMGroup/contactInfo"; // ✅ likely fix from "connectSection"
 
 // Pages
 import AboutUs from "./pages/AboutUs";
-import NaaMGroup from "./pages/NaaMGroup";
-import GetStarted from "./NaaMGroupPages/GetStarted";
+import NaaMGroup from "./components/NaaMGroup/NaaMGroup";
+// import GetStarted from "./NaaMGroupPages/GetStarted";
+
+// Data
+import aboutContent from "./data/aboutContent.json";
 
 // Styles
 import "./styles/main.scss";
@@ -25,26 +36,26 @@ import "./styles/hero-slider.scss";
 import "./styles/custom-cursor.css";
 
 function App() {
-  // Butterfly Background toggle
+  // Butterfly background toggle
   const [showButterflies, setShowButterflies] = useState(true);
 
-  // Radio Player states
+  // Radio states
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
-  // Language state
-  const [language, setLanguage] = useState("EN"); // "EN" or "TA"
+  // Language toggle
+  const [language, setLanguage] = useState("EN"); // or "TA"
 
   const streamUrl = "https://centova.aarenworld.com/proxy/894tamilfm/stream";
 
-  // Update audio volume on changes
   useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = isMuted ? 0 : volume;
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume;
+    }
   }, [volume, isMuted]);
 
-  // Play/Pause toggle
   const togglePlay = async () => {
     if (!audioRef.current) return;
     try {
@@ -60,11 +71,12 @@ function App() {
     }
   };
 
-  // Mute toggle
   const toggleMute = () => {
-    setIsMuted((prev) => {
+    setIsMuted(prev => {
       const newMute = !prev;
-      if (audioRef.current) audioRef.current.volume = newMute ? 0 : volume;
+      if (audioRef.current) {
+        audioRef.current.volume = newMute ? 0 : volume;
+      }
       return newMute;
     });
   };
@@ -72,14 +84,14 @@ function App() {
   return (
     <Router>
       <div className="app relative custom-cursor min-h-screen bg-gray-900 flex flex-col text-white">
-        {/* 🦋 Butterfly Background */}
+        {/* Butterfly background */}
         {showButterflies && (
           <div className="fixed inset-0 -z-10 pointer-events-none">
             <ButterflyGarden />
           </div>
         )}
 
-        {/* 🔼 Header */}
+        {/* Header */}
         <Header
           isPlaying={isPlaying}
           togglePlay={togglePlay}
@@ -87,13 +99,13 @@ function App() {
           setLanguage={setLanguage}
         />
 
-        {/* 📰 Flash News (JSON, supports Tamil + English) */}
+        {/* Flash news ticker */}
         <FlashNewsTicker language={language} />
 
         {/* Main content */}
         <main className="flex-1">
           <Routes>
-            {/* Home Page */}
+            {/* Home */}
             <Route
               path="/"
               element={
@@ -115,10 +127,10 @@ function App() {
               }
             />
 
-            {/* About Us Page */}
+            {/* About Us */}
             <Route path="/about-us" element={<AboutUs language={language} />} />
 
-            {/* Naam RJ Page */}
+            {/* NaaM RJ */}
             <Route
               path="/naam-rj"
               element={
@@ -130,27 +142,31 @@ function App() {
               }
             />
 
-            {/* Redirect old paths */}
+            {/* Old path redirect */}
             <Route path="/naam-fm" element={<Navigate to="/naam-rj" replace />} />
 
-            {/* NaaM Group Page */}
+            {/* NaaM Group */}
             <Route
               path="/naam-group"
-              element={<NaaMGroup language={language} />}
+              element={
+                <>
+                  <NaaMGroup language={language} />
+                  <ServicesSection language={language} />
+                  <AboutSection language={language} />
+                  <ContactSection language={language} />
+                </>
+              }
             />
 
-            {/* Get Started Page */}
-            <Route
-              path="/naam-group/get-started"
-              element={<GetStarted language={language} />}
-            />
+            {/* Future: Get Started page (optional) */}
+            {/* <Route path="/naam-group/get-started" element={<GetStarted language={language} />} /> */}
           </Routes>
         </main>
 
         {/* Footer */}
         <Footer language={language} />
 
-        {/* Audio element (hidden) */}
+        {/* Hidden Audio Player */}
         <audio ref={audioRef} src={streamUrl} preload="auto" />
       </div>
     </Router>

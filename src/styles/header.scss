@@ -85,6 +85,21 @@
     @media (min-width: 768px) {
       display: flex;
     }
+
+    /* WhatsApp icon styling */
+    a.whatsapp-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #25d366; /* WhatsApp green */
+      margin-left: 0.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: #128c4a;
+        transform: scale(1.1);
+      }
+    }
   }
 
   &__socials {
@@ -287,36 +302,25 @@
 // Tamil Button - Pink-Purple gradient
 .btn-ta {
   @extend .language-button;
-  background: linear-gradient(135deg, #d6336c, #7b2ff7);
-
-  &.active {
-    box-shadow: 0 0 10px 2px #d6336c;
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, #b32457, #5a20b3);
-  }
+  background: linear-gradient(135deg, #da22ff 0%, #9733ee 100%);
 }
 
-// English Button - Blue-Cyan gradient
+// English Button - Cyan gradient
 .btn-en {
   @extend .language-button;
-  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  background: linear-gradient(135deg, #22c1c3 0%, #fdbb2d 100%);
+}
 
-  &.active {
-    box-shadow: 0 0 10px 2px #22d3ee;
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, #1aa9c7, #2563eb);
-  }
+.btn-ta.active, .btn-en.active {
+  box-shadow: 0 0 20px 5px #facc15;
 }
 
 /* Animations */
+
 @keyframes fadeSlide {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
   to {
     opacity: 1;
@@ -326,41 +330,19 @@
 
 @keyframes textFlow {
   0% {
-    background-position: 0% center;
+    background-position: 0% 50%;
   }
   100% {
-    background-position: 200% center;
+    background-position: 200% 50%;
   }
 }
 
 @keyframes glowPulse {
-  from {
-    text-shadow: 0 0 4px #facc15, 0 0 8px #facc15;
+  0% {
+    text-shadow: 0 0 3px #facc15;
   }
-  to {
-    text-shadow: 0 0 12px #facc15, 0 0 24px #facc15;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    text-shadow: 0 0 10px #facc15;
   }
 }
 
@@ -369,6 +351,28 @@
     background-position: 0 0;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 10px 10px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
