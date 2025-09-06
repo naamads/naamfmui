@@ -2,25 +2,19 @@
   {
     "id": 1,
     "image": "https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop",
-    "title": "Welcome to",
-    "subtitle": "Your Voice, Your Music, Your Station"
+    "title": { "EN": "Welcome to", "TN": "வரவேற்கிறோம்" },
+    "subtitle": { "EN": "Your Voice, Your Music, Your STNtion", "TN": "உங்கள் குரல், உங்கள் இசை, உங்கள் ரேடியோ ஸ்டேஷன்" }
   },
   {
     "id": 2,
     "image": "/images/microphone.jpg",
-    "title": "Local News",
-    "subtitle": "Stay Updated"
+    "title": { "EN": "Local News", "TN": "உள்ளூர்த் செய்திகள்" },
+    "subtitle": { "EN": "STNy Updated", "TN": "மேலதிக தகவலுக்காக" }
   },
   {
     "id": 3,
     "image": "/images/Naam.jpg",
-    "title": "NaaM Break Time",
-    "subtitle": "Connecting Hearts Through Music"
-  },
-  {
-    "id": 4,
-    "image": "/images/vibes.jpg",
-    "title": "",
-    "subtitle": ""
+    "title": { "EN": "NaaM Break Time", "TN": "நாம் பிரேக் டைம்" },
+    "subtitle": { "EN": "Connecting Hearts Through Music", "TN": "இசை மூலம் மனங்களை இணைக்கிறது" }
   }
 ]

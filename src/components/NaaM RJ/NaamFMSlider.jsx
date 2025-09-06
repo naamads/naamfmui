@@ -12,8 +12,8 @@ import NaaMRjSlider from "/src/data/NaaMRjSlider.json";
 
 const dancingIcons = ["🎤", "🎶", "🎵", "♬", "🎧"];
 
-const NaamFMSlider = ({ scrollY }) => {
-  const heroData = NaaMRjSlider;
+const NaamFMSlider = ({ scrollY, language = "EN" }) => {
+  const heroData = NaaMRjSlider; // assume structure: { title: { EN, TN }, frames: [...] }
 
   const letterVariant = {
     hidden: { opacity: 0, y: 50 },
@@ -34,13 +34,9 @@ const NaamFMSlider = ({ scrollY }) => {
 
       <div className="slider-container">
         {/* Animated Title */}
-        <motion.div
-          className="slider-title"
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="slider-title" initial="hidden" animate="visible">
           <h1>
-            {heroData.title.main.split("").map((letter, index) => (
+            {heroData.title.main[language].split("").map((letter, index) => (
               <motion.span
                 key={index}
                 variants={letterVariant}
@@ -51,7 +47,7 @@ const NaamFMSlider = ({ scrollY }) => {
               </motion.span>
             ))}
             <br />
-            {heroData.title.sub.split("").map((letter, index) => (
+            {heroData.title.sub[language].split("").map((letter, index) => (
               <motion.span
                 key={index}
                 variants={letterVariant}
@@ -67,7 +63,7 @@ const NaamFMSlider = ({ scrollY }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 2, duration: 1 }}
           >
-            {heroData.title.tagline}
+            {heroData.title.tagline[language]}
           </motion.p>
         </motion.div>
 
@@ -100,10 +96,10 @@ const NaamFMSlider = ({ scrollY }) => {
             {heroData.frames.map((frame) => (
               <SwiperSlide key={frame.id} className="slide">
                 <div className="card">
-                  <img src={frame.image} alt={frame.title} />
+                  <img src={frame.image} alt={frame.title[language]} />
                   <div className="card-content">
-                    <h3>{frame.title}</h3>
-                    <p>{frame.description}</p>
+                    <h3>{frame.title[language]}</h3>
+                    <p>{frame.description[language]}</p>
                     <div className="dancing-icons">
                       {dancingIcons.map((icon, idx) => (
                         <motion.span

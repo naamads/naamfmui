@@ -5,7 +5,7 @@ import { Clock, Mic, Radio, Headphones } from "lucide-react";
 import programsData from "/src/data/programs.json";
 import "./ProgrammingSection.scss";
 
-const ProgrammingSection = () => {
+const ProgrammingSection = ({ language = "EN" }) => {
   const [ref1, inView1] = useInView({ threshold: 0.3, triggerOnce: true });
   const [ref2, inView2] = useInView({ threshold: 0.3, triggerOnce: true });
   const [ref3, inView3] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -42,11 +42,14 @@ const ProgrammingSection = () => {
           className="section-title"
         >
           <h2>
-            <span className="neon-gradient">Live Programming</span>
+            <span className="neon-gradient">
+              {language === "EN" ? "Live Programming" : "நேரடி நிகழ்ச்சிகள்"}
+            </span>
           </h2>
           <p>
-            Meet our talented radio jockeys who bring you the best in music,
-            entertainment, and engaging conversations.
+            {language === "EN"
+              ? "Meet our talented radio jockeys who bring you the best in music, entertainment, and engaging conversations."
+              : "சிறந்த இசை, பொழுதுபோக்கு மற்றும் ஈடுபடுத்தும் உரையாடல்களை வழங்கும் திறமையான ரேடியோ ஜாக்கிகளைக் காணுங்கள்."}
           </p>
         </motion.div>
 
@@ -77,42 +80,46 @@ const ProgrammingSection = () => {
               <motion.div variants={itemVariants} className="rj-card">
                 <div className={`card neon-${program.color}`}>
                   <div className="profile">
-                    <img src={program.image} alt={program.name} />
+                    <img src={program.image} alt={program.name[language]} />
                     <div className="live-indicator">
                       <div className="dot" />
                     </div>
                   </div>
                   <div>
-                    <h3>{program.name}</h3>
-                    <p className={`show ${program.color}`}>{program.show}</p>
+                    <h3>{program.name[language]}</h3>
+                    <p className={`show ${program.color}`}>{program.show[language]}</p>
                   </div>
                 </div>
 
                 <div className="info-row">
                   <div className="badge">
                     <Clock className="icon" />
-                    <span>{program.time}</span>
+                    <span>{program.time[language]}</span>
                   </div>
                   <div className="badge">
                     <Headphones className="icon" />
-                    <span>{program.experience}</span>
+                    <span>{program.experience[language]}</span>
                   </div>
                 </div>
 
                 <div className="specialty">
-                  <p className="label">Specialty</p>
-                  <p className={`text-${program.color}`}>{program.specialty}</p>
+                  <p className="label">
+                    {language === "EN" ? "Specialty" : "சிறப்பான கலை"}
+                  </p>
+                  <p className={`text-${program.color}`}>{program.specialty[language]}</p>
                 </div>
               </motion.div>
 
               {/* Content */}
               <motion.div variants={itemVariants} className="program-content">
-                <h4>{program.show}</h4>
-                <p>{program.description}</p>
+                <h4>{program.show[language]}</h4>
+                <p>{program.description[language]}</p>
                 <div className="buttons">
-                  <button className="btn-gradient">Listen Live</button>
+                  <button className="btn-gradient">
+                    {language === "EN" ? "Listen Live" : "நேரடியாக கேட்க"}
+                  </button>
                   <button className={`btn-outline-${program.color}`}>
-                    View Schedule
+                    {language === "EN" ? "View Schedule" : "அட்டவணையை பார்க்க"}
                   </button>
                 </div>
               </motion.div>

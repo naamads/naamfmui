@@ -1,33 +1,36 @@
 {
   "title": {
-    "main": "NaaM",
-    "sub": "RJ Programming",
-    "tagline": "Experience the future of radio broadcasting with cinematic sound design"
+    "main": { "EN": "NaaM", "TN": "நாம்" },
+    "sub": { "EN": "RJ Programming", "TN": "RJ நிகழ்ச்சிகள்" },
+    "tagline": {
+      "EN": "Experience the future of radio broadcasting with cinematic sound design",
+      "TN": "சினிமா ஒலி வடிவமைப்புடன் ரேடியோ பிராட்காஸ்டிங் எதிர்காலத்தை அனுபவிக்கவும்"
+    }
   },
   "frames": [
     {
       "id": 1,
       "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "title": "Sonic Waves",
-      "description": "Abstract sound visualization"
+      "title": { "EN": "Sonic Waves", "TN": "சோனிக் அலைகள்" },
+      "description": { "EN": "Abstract sound visualization", "TN": "கோட்பாடு ஒலி காட்சிப்படுத்தல்" }
     },
     {
       "id": 2,
       "image": "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "title": "Neon Dreams",
-      "description": "Futuristic radio studio"
+      "title": { "EN": "Neon Dreams", "TN": "நியான் கனவுகள்" },
+      "description": { "EN": "Futuristic radio studio", "TN": "எதிர்கால ரேடியோ ஸ்டுடியோ" }
     },
     {
       "id": 3,
       "image": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "title": "Digital Harmony",
-      "description": "Music meets technology"
+      "title": { "EN": "Digital Harmony", "TN": "டிஜிட்டல் ஹார்மனி" },
+      "description": { "EN": "Music meets technology", "TN": "இசையும் தொழில்நுட்பமும் சந்திக்கின்றன" }
     },
     {
       "id": 4,
       "image": "https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "title": "Audio Spectrum",
-      "description": "Visual sound experience"
+      "title": { "EN": "Audio Spectrum", "TN": "ஆடியோ ஸ்பெக்ட்ரம்" },
+      "description": { "EN": "Visual sound experience", "TN": "காட்சி ஒலி அனுபவம்" }
     }
   ]
 }

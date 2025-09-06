@@ -2,51 +2,51 @@
   {
     "id": 1,
     "image": "/src/assests/NaaM Groupimage/naam-it-care.jpg",
-    "title": "NAAM IT CARE",
-    "subtitle": "We create digital experiences that inspire 🚀",
-    "category": "Technology",
-    "description": "Cutting-edge IT solutions that transform businesses and empower digital innovation across industries.",
-    "button1": { "text": "Get Started", "link": "/get-started" },
-    "button2": { "text": "Learn More", "link": "/learn-more" }
+    "title": { "EN": "NAAM IT CARE", "TN": "NAAM IT கேர்" },
+    "subtitle": { "EN": "We create digital experiences that inspire 🚀", "TN": "நாம் உருவாக்கும் டிஜிட்டல் அனுபவங்கள் உங்களை ஊக்குவிக்கின்றன 🚀" },
+    "category": { "EN": "Technology", "TN": "தொழில்நுட்பம்" },
+    "description": { "EN": "Cutting-edge IT solutions that transform businesses and empower digital innovation across industries.", "TN": "புதிய தொழில்நுட்ப IT தீர்வுகள், வணிகங்களை மாற்றி, துறைமுகங்களில் டிஜிட்டல் கண்டுபிடிப்பை முன்னேற்றுகின்றன." },
+    "button1": { "EN": { "text": "Get Started", "link": "/get-started" }, "TN": { "text": "தொடங்குங்கள்", "link": "/get-started" } },
+    "button2": { "EN": { "text": "Learn More", "link": "/learn-more" }, "TN": { "text": "மேலும் அறிய", "link": "/learn-more" } }
   },
   {
     "id": 2,
     "image": "/src/assests/NaaM Groupimage/naam-fm.jpg",
-    "title": "NaaM FM",
-    "subtitle": "Transforming vision into reality",
-    "category": "Media",
-    "description": "Broadcasting excellence with state-of-the-art facilities and engaging content that connects communities.",
-    "button1": { "text": "Discover", "link": "/discover" },
-    "button2": { "text": "Portfolio", "link": "/portfolio" }
+    "title": { "EN": "NaaM FM", "TN": "NaaM FM" },
+    "subtitle": { "EN": "Transforming vision into reality", "TN": "காட்சி யथார்த்தமாக மாறுகிறது" },
+    "category": { "EN": "Media", "TN": "மீடியா" },
+    "description": { "EN": "Broadcasting excellence with state-of-the-art facilities and engaging content that connects communities.", "TN": "சமுதாயங்களுடன் தொடர்பு கொண்ட engaging உள்ளடக்கத்துடன் முன்னேற்றமான வசதிகள் கொண்ட பிராட்காஸ்டிங் சிறப்பியல்." },
+    "button1": { "EN": { "text": "Discover", "link": "/discover" }, "TN": { "text": "கண்டறிய", "link": "/discover" } },
+    "button2": { "EN": { "text": "Portfolio", "link": "/portfolio" }, "TN": { "text": "போர்ட்ஃபோலியோ", "link": "/portfolio" } }
   },
   {
     "id": 3,
     "image": "/src/assests/NaaM Groupimage/naam-rj.jpg",
-    "title": "NaaM RJ",
-    "subtitle": "Modern tech for modern business",
-    "category": "Innovation",
-    "description": "Revolutionary solutions that bridge the gap between traditional business and digital transformation.",
-    "button1": { "text": "Explore", "link": "/explore" },
-    "button2": { "text": "Contact Us", "link": "/contact" }
+    "title": { "EN": "NaaM RJ", "TN": "NaaM RJ" },
+    "subtitle": { "EN": "Modern tech for modern business", "TN": "நவீன வணிகத்திற்கு நவீன தொழில்நுட்பம்" },
+    "category": { "EN": "Innovation", "TN": "புதுமை" },
+    "description": { "EN": "Revolutionary solutions that bridge the gap between traditional business and digital transformation.", "TN": "பாரம்பரிய வணிகத்தையும் டிஜிட்டல் மாற்றத்தையும் இணைக்கும் புரட்சிகர தீர்வுகள்." },
+    "button1": { "EN": { "text": "Explore", "link": "/explore" }, "TN": { "text": "ஆரம்பிக்கவும்", "link": "/explore" } },
+    "button2": { "EN": { "text": "Contact Us", "link": "/contact" }, "TN": { "text": "எங்களை தொடர்பு கொள்ள", "link": "/contact" } }
   },
   {
     "id": 4,
     "image": "/src/assests/NaaM Groupimage/naam-photoshop.jpg",
-    "title": "NaaM PhotoShop",
-    "subtitle": "Empowering digital future",
-    "category": "Creative",
-    "description": "Professional design services that bring your creative vision to life with stunning visual impact.",
-    "button1": { "text": "Join Us", "link": "/join-us" },
-    "button2": { "text": "Services", "link": "/services" }
+    "title": { "EN": "NaaM PhotoShop", "TN": "NaaM Photoshop" },
+    "subtitle": { "EN": "Empowering digital future", "TN": "டிஜிட்டல் எதிர்காலத்தை ஊக்குவிக்கிறது" },
+    "category": { "EN": "Creative", "TN": "பிரசித்தி" },
+    "description": { "EN": "Professional design services that bring your creative vision to life with stunning visual impact.", "TN": "உங்கள் படைப்பாற்றலை வாழ்த்தும், அதிவேகமான காட்சிப்படுத்தும் தொழில்நுட்ப வடிவமைப்பு சேவைகள்." },
+    "button1": { "EN": { "text": "Join Us", "link": "/join-us" }, "TN": { "text": "எங்களுடன் சேரவும்", "link": "/join-us" } },
+    "button2": { "EN": { "text": "Services", "link": "/services" }, "TN": { "text": "சேவைகள்", "link": "/services" } }
   },
   {
     "id": 5,
     "image": "/src/assests/NaaM Groupimage/naam-digital-marketing.jpg",
-    "title": "NaaM Digital Marketing",
-    "subtitle": "Crafted with creativity",
-    "category": "Marketing",
-    "description": "Strategic digital marketing campaigns that drive engagement and deliver measurable business growth.",
-    "button1": { "text": "Read More", "link": "/read-more" },
-    "button2": { "text": "Details", "link": "/details" }
+    "title": { "EN": "NaaM Digital Marketing", "TN": "NaaM டிஜிட்டல் மார்க்கெட்டிங்" },
+    "subtitle": { "EN": "Crafted with creativity", "TN": "பண்புடைத்த கலைஞர்களால் உருவாக்கப்பட்டது" },
+    "category": { "EN": "Marketing", "TN": "மார்க்கெட்டிங்" },
+    "description": { "EN": "Strategic digital marketing campaigns that drive engagement and deliver measurable business growth.", "TN": "பங்கேற்பை தூண்டும், measurable வணிக வளர்ச்சியை வழங்கும் திட்டமிடப்பட்ட டிஜிட்டல் மார்க்கெட்டிங் பிரச்சாரங்கள்." },
+    "button1": { "EN": { "text": "Read More", "link": "/read-more" }, "TN": { "text": "மேலும் வாசிக்க", "link": "/read-more" } },
+    "button2": { "EN": { "text": "Details", "link": "/details" }, "TN": { "text": "விவரங்கள்", "link": "/details" } }
   }
 ]

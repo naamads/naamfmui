@@ -6,12 +6,15 @@ import '../styles/footer.scss';
 import translations from '../data/footerTranslations.json';
 
 const Footer = ({ language = "EN" }) => {
+  // Use Tamil if language="TN", fallback to English
   const t = translations[language] || translations.EN;
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__content">
+
+          {/* About Section */}
           <div className="footer__section">
             <h3>Naam FM</h3>
             <p>{t.about}</p>
@@ -23,6 +26,7 @@ const Footer = ({ language = "EN" }) => {
             </div>
           </div>
 
+          {/* Contact Section */}
           <div className="footer__section">
             <h3>{t.contact}</h3>
             <div className="contact-item"><Phone size={16} /><span>+91 98765 43210</span></div>
@@ -30,6 +34,7 @@ const Footer = ({ language = "EN" }) => {
             <div className="contact-item"><MapPin size={16} /><span>123 Radio Street, Music City</span></div>
           </div>
 
+          {/* Quick Links */}
           <div className="footer__section">
             <h3>{t.quickLinks}</h3>
             <a href="#home">Home</a>
@@ -39,6 +44,7 @@ const Footer = ({ language = "EN" }) => {
             <a href="#privacy">{t.privacy}</a>
           </div>
 
+          {/* Programs Section */}
           <div className="footer__section">
             <h3>{t.programs}</h3>
             <a href="#morning-show">Morning Show</a>
@@ -47,8 +53,10 @@ const Footer = ({ language = "EN" }) => {
             <a href="#weekend-special">Weekend Special</a>
             <a href="#request-hour">Request Hour</a>
           </div>
+
         </div>
 
+        {/* Footer Bottom */}
         <div className="footer__bottom">
           <p>&copy; 2024 Naam FM. {t.copy}</p>
         </div>

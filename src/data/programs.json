@@ -1,37 +1,46 @@
 [
   {
     "id": 1,
-    "name": "Alex Rivera",
-    "time": "6:00 AM - 10:00 AM",
-    "show": "Morning Vibes",
+    "name": { "EN": "Alex Rivera", "TN": "அலெக்ஸ் ரிவேரா" },
+    "time": { "EN": "6:00 AM - 10:00 AM", "TN": "காலை 6:00 - 10:00" },
+    "show": { "EN": "Morning Vibes", "TN": "காலை உணர்வுகள்" },
     "image": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "Start your day with energizing beats and positive vibes. Alex brings you the perfect blend of contemporary hits and classic favorites to fuel your morning routine.",
-    "specialty": "Contemporary Hits",
-    "experience": "8 Years",
+    "description": {
+      "EN": "Start your day with energizing beats and positive vibes. Alex brings you the perfect blend of contemporary hits and classic favorites to fuel your morning routine.",
+      "TN": "உங்கள் நாளை உயிரூட்டும் இசை மற்றும் நேர்மறை உணர்வுகளுடன் தொடங்குங்கள். அலெக்ஸ் நவீன ஹிட்ஸ் மற்றும் பழமையான பிரியமான பாடல்களின் சரியான கலவை கொண்டு உங்கள் காலை வழக்கத்தை ஊக்குவிக்கிறார்."
+    },
+    "specialty": { "EN": "Contemporary Hits", "TN": "நவீன ஹிட்ஸ்" },
+    "experience": { "EN": "8 Years", "TN": "8 ஆண்டுகள்" },
     "layout": "left",
     "color": "blue"
   },
   {
     "id": 2,
-    "name": "Sarah Chen",
-    "time": "2:00 PM - 6:00 PM",
-    "show": "Afternoon Drive",
+    "name": { "EN": "Sarah Chen", "TN": "சாரா சென்" },
+    "time": { "EN": "2:00 PM - 6:00 PM", "TN": "மதியம் 2:00 - 6:00" },
+    "show": { "EN": "Afternoon Drive", "TN": "மதிய இயக்கம்" },
     "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "Navigate through your afternoon with Sarah's curated selection of smooth jazz, indie rock, and emerging artists. Perfect companion for your daily commute.",
-    "specialty": "Jazz & Indie",
-    "experience": "12 Years",
+    "description": {
+      "EN": "Navigate through your afternoon with Sarah's curated selection of smooth jazz, indie rock, and emerging artists. Perfect companion for your daily commute.",
+      "TN": "சாராவின் தேர்ந்தெடுக்கப்பட்ட ஸ்மூத் ஜாஸ், இன்டி ராக் மற்றும் புதிய கலைஞர்கள் கொண்ட காட்சியால் உங்கள் மதியத்தை நிர்வகிக்கவும். உங்கள் தினசரி பயணத்திற்கு சரியான துணை."
+    },
+    "specialty": { "EN": "Jazz & Indie", "TN": "ஜாஸ் & இன்டி" },
+    "experience": { "EN": "12 Years", "TN": "12 ஆண்டுகள்" },
     "layout": "right",
     "color": "purple"
   },
   {
     "id": 3,
-    "name": "Marcus Johnson",
-    "time": "8:00 PM - 12:00 AM",
-    "show": "Midnight Sessions",
+    "name": { "EN": "Marcus Johnson", "TN": "மார்கஸ் ஜான்சன்" },
+    "time": { "EN": "8:00 PM - 12:00 AM", "TN": "இரவு 8:00 - 12:00" },
+    "show": { "EN": "Midnight Sessions", "TN": "நள்ளிரவு அமர்வுகள்" },
     "image": "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "Dive into the night with Marcus as he explores deep house, ambient electronica, and underground tracks that create the perfect nocturnal atmosphere.",
-    "specialty": "Electronic & Ambient",
-    "experience": "15 Years",
+    "description": {
+      "EN": "Dive into the night with Marcus as he explores deep house, ambient electronica, and underground tracks that create the perfect nocturnal atmosphere.",
+      "TN": "மார்கஸ் ஆழமான ஹவுஸ், அம்பியன்ட் எலக்ட்ரானிகா மற்றும் மண் கீழ் பாடல்களை ஆராய்ந்து, உச்சமான இரவு சூழலை உருவாக்கும் முறையில் இரவுக்கு நுழையுங்கள்."
+    },
+    "specialty": { "EN": "Electronic & Ambient", "TN": "எலக்ட்ரானிக் & அம்பியன்ட்" },
+    "experience": { "EN": "15 Years", "TN": "15 ஆண்டுகள்" },
     "layout": "left",
     "color": "pink"
   }

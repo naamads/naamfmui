@@ -12,6 +12,7 @@ import RadioPlayer from "./components/RadioPlayer";
 import OnAirCrew from "./components/OnAirCrew";
 import NaamFMSlider from "./components/NaaM RJ/NaamFMSlider";
 import ProgrammingSection from "./components/NaaM RJ/ProgrammingSection";
+import MicrophoneSection from "./components/NaaM RJ/MicrophoneSection";
 
 // Pages
 import AboutUs from "./pages/AboutUs";
@@ -22,24 +23,28 @@ import GetStarted from "./NaaMGroupPages/GetStarted";
 import "./styles/main.scss";
 import "./styles/hero-slider.scss";
 import "./styles/custom-cursor.css";
-import MicrophoneSection from "./components/NaaM RJ/MicrophoneSection";
 
 function App() {
+  // Butterfly Background toggle
   const [showButterflies, setShowButterflies] = useState(true);
 
+  // Radio Player states
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
-  const [language, setLanguage] = useState("EN"); // EN or TN
+  // Language state
+  const [language, setLanguage] = useState("EN"); // "EN" or "TA"
 
   const streamUrl = "https://centova.aarenworld.com/proxy/894tamilfm/stream";
 
+  // Update audio volume on changes
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = isMuted ? 0 : volume;
   }, [volume, isMuted]);
 
+  // Play/Pause toggle
   const togglePlay = async () => {
     if (!audioRef.current) return;
     try {
@@ -55,6 +60,7 @@ function App() {
     }
   };
 
+  // Mute toggle
   const toggleMute = () => {
     setIsMuted((prev) => {
       const newMute = !prev;
@@ -81,18 +87,8 @@ function App() {
           setLanguage={setLanguage}
         />
 
-        {/* 📰 Flash News */}
-        <FlashNewsTicker
-          title="Latest News"
-          items={[
-            { text: "🎉 Naam FM: Your Local Voice", url: "#" },
-            { text: "📻 Tune in live 24/7", url: "#" },
-            { text: "📰 Community updates every hour", url: "#" },
-          ]}
-          mode="marquee"
-          marqueeSpeedSec={25}
-          pauseOnHover={true}
-        />
+        {/* 📰 Flash News (JSON, supports Tamil + English) */}
+        <FlashNewsTicker language={language} />
 
         {/* Main content */}
         <main className="flex-1">
@@ -128,8 +124,8 @@ function App() {
               element={
                 <>
                   <NaamFMSlider language={language} />
-                  <ProgrammingSection />
-                  <MicrophoneSection/>
+                  <ProgrammingSection language={language} />
+                  <MicrophoneSection language={language} />
                 </>
               }
             />
@@ -137,7 +133,7 @@ function App() {
             {/* Redirect old paths */}
             <Route path="/naam-fm" element={<Navigate to="/naam-rj" replace />} />
 
-            {/* NaaM Group Page (with section1 + body) */}
+            {/* NaaM Group Page */}
             <Route
               path="/naam-group"
               element={<NaaMGroup language={language} />}

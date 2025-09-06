@@ -6,7 +6,7 @@ import { Play, Pause, RotateCcw } from 'lucide-react';
 import slidesData from '/src/data/NaaMGroupSlide.json';
 import '/src/styles/NaaMGroup.scss';
 
-const NaaMGroup = () => {
+const NaaMGroup = ({ language = 'EN' }) => {
   const [isRotating, setIsRotating] = useState(true);
   const [isReversed, setIsReversed] = useState(false);
   const [focusedSlide, setFocusedSlide] = useState(null);
@@ -26,7 +26,7 @@ const NaaMGroup = () => {
     event.preventDefault();
     event.stopPropagation();
     console.log(`Navigate to: ${link}`);
-    window.location.href = link; // ⬅️ direct navigation
+    window.location.href = link;
   };
 
   const toggleRotation = () => setIsRotating(!isRotating);
@@ -53,7 +53,7 @@ const NaaMGroup = () => {
           className={`slider-3d-inner ${isRotating ? 'rotate-infinite' : ''}`}
           style={{
             animationDirection: isReversed ? 'reverse' : 'normal',
-            animationPlayState: isRotating && !focusedSlide ? 'running' : 'paused',
+            animationPlayState: isRotating && focusedSlide === null ? 'running' : 'paused',
             transform:
               focusedSlide !== null ? `rotateY(${-72 * focusedSlide}deg)` : undefined,
           }}
@@ -66,30 +66,34 @@ const NaaMGroup = () => {
               onClick={(e) => handleSlideClick(index, e)}
             >
               <div className="slide-img">
-                <img src={slide.image} alt={slide.title} className="img-content" />
+                <img
+                  src={slide.image}
+                  alt={slide.title[language]}
+                  className="img-content"
+                />
               </div>
 
               <div className="slide-content">
                 <div className="text-center">
-                  <span className="category-tag">{slide.category}</span>
-                  <h3 className="slide-title">{slide.title}</h3>
-                  <p className="slide-subtitle">{slide.subtitle}</p>
+                  <span className="category-tag">{slide.category[language]}</span>
+                  <h3 className="slide-title">{slide.title[language]}</h3>
+                  <p className="slide-subtitle">{slide.subtitle[language]}</p>
                 </div>
 
                 <div className="action-btns">
                   <Button
                     variant="gradient"
                     size="sm"
-                    onClick={(e) => handleActionClick(slide.button1.link, e)}
+                    onClick={(e) => handleActionClick(slide.button1[language].link, e)}
                   >
-                    {slide.button1.text}
+                    {slide.button1[language].text}
                   </Button>
                   <Button
                     variant="outline-gradient"
                     size="sm"
-                    onClick={(e) => handleActionClick(slide.button2.link, e)}
+                    onClick={(e) => handleActionClick(slide.button2[language].link, e)}
                   >
-                    {slide.button2.text}
+                    {slide.button2[language].text}
                   </Button>
                 </div>
               </div>
